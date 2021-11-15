@@ -8,10 +8,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     //RxJava for JVM, independent from android framework
     implementation "io.reactivex.rxjava3:rxjava:3.1.2"
