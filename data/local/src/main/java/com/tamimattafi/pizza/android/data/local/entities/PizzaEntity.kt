@@ -23,12 +23,14 @@ data class PizzaEntity(
     )
 
     companion object {
-        fun Pizza.toEntity() = PizzaEntity(
-            id,
-            name,
-            description,
-            imageUrls,
-            price
-        )
+        fun toEntity(pizza: Pizza) = pizza.run {
+            PizzaEntity(
+                id,
+                name,
+                description,
+                imageUrls,
+                price
+            )
+        }
     }
 }

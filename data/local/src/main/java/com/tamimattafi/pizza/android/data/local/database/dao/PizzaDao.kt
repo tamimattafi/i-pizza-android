@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.tamimattafi.pizza.android.data.local.database.PrimaryDatabase.Tables.PIZZA_TABLE
 import com.tamimattafi.pizza.android.data.local.entities.PizzaEntity
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 
 @Dao
@@ -18,5 +19,8 @@ interface PizzaDao {
     fun getById(id: Int): Flowable<PizzaEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(list: List<PizzaEntity>)
+    fun insertAll(list: List<PizzaEntity>): Completable
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(pizza: PizzaEntity): Completable
 }

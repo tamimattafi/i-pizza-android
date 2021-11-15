@@ -23,14 +23,4 @@ data class PizzaBody(
         imageUrls,
         price
     )
-
-    companion object {
-        fun Pizza.toEntity() = PizzaBody(
-            id,
-            name,
-            description,
-            imageUrls,
-            price
-        )
-    }
 }

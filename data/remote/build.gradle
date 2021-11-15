@@ -34,8 +34,17 @@ android {
 }
 
 dependencies {
+    //Http client
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    //JSON Serialization
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.4"
+    implementation 'com.squareup.retrofit2:converter-jackson:2.4.0'
+
     //RxJava
     implementation "io.reactivex.rxjava3:rxjava:3.1.2"
 
-    implementation project(':domain')
+    //Logic
+    implementation project(":domain")
+    implementation project(":data")
 }
