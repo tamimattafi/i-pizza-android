@@ -25,7 +25,9 @@ class PizzaLocalDataSource(
 
     override fun getAll(): Flowable<List<Pizza>> =
         dao.getAll()
-            .map { pizzaList ->
-                pizzaList.map(PizzaEntity::toPizza)
-            }
+            .map(PizzaEntity::toPizzaList)
+
+    override fun search(query: String): Flowable<List<Pizza>> =
+        dao.search(query)
+            .map(PizzaEntity::toPizzaList)
 }

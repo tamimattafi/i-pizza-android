@@ -4,7 +4,6 @@ import com.tamimattafi.pizza.android.data.local.IPizzaLocalDataSource
 import com.tamimattafi.pizza.android.data.remote.IPizzaRemoteDataSource
 import com.tamimattafi.pizza.domain.model.Pizza
 import com.tamimattafi.pizza.domain.repository.IPizzaRepository
-import io.reactivex.rxjava3.core.BackpressureStrategy
 import io.reactivex.rxjava3.core.Flowable
 
 class PizzaRepository(
@@ -21,6 +20,9 @@ class PizzaRepository(
         local.getAll().doOnSubscribe {
             this.syncPizzaList()
         }
+
+    override fun search(query: String): Flowable<List<Pizza>> =
+        local.search(query)
 
     private fun syncPizzaList() =
         remote.getAll()

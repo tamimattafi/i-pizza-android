@@ -23,14 +23,22 @@ data class PizzaEntity(
     )
 
     companion object {
-        fun toEntity(pizza: Pizza) = pizza.run {
-            PizzaEntity(
-                id,
-                name,
-                description,
-                imageUrls,
-                price
-            )
-        }
+        fun toEntity(pizza: Pizza) =
+            pizza.run {
+                PizzaEntity(
+                    id,
+                    name,
+                    description,
+                    imageUrls,
+                    price
+                )
+            }
+
+        fun toPizzaList(entitiesList: List<PizzaEntity>) =
+            entitiesList.map(PizzaEntity::toPizza)
+    }
+
+    object Columns {
+        const val ID = "id"
     }
 }

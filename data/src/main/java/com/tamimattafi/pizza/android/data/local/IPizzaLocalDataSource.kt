@@ -9,4 +9,5 @@ interface IPizzaLocalDataSource {
     fun insertAll(pizzaList: List<Pizza>): Completable
     fun get(id: Int): Flowable<Pizza>
     fun getAll(): Flowable<List<Pizza>>
+    fun search(query: String): Flowable<List<Pizza>>
 }

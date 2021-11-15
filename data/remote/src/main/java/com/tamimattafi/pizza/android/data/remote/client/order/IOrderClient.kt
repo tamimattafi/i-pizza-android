@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.core.Completable
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface OrderClient {
+interface IOrderClient {
 
     @POST(PIZZA_ORDER_PATH)
     fun placeOrder(@Body list: List<OrderBody>): Completable
