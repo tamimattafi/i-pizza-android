@@ -2,3 +2,4 @@ include(
     ':app',
     ':presentation'
 )
+include ':data'
