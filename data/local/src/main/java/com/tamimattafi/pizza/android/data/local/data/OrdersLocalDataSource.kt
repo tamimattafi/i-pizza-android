@@ -2,7 +2,7 @@ package com.tamimattafi.pizza.android.data.local.data
 
 import androidx.room.rxjava3.EmptyResultSetException
 import com.tamimattafi.pizza.android.data.local.IOrdersLocalDataSource
-import com.tamimattafi.pizza.android.data.local.database.dao.OrdersDao
+import com.tamimattafi.pizza.android.data.local.database.dao.IOrdersDao
 import com.tamimattafi.pizza.android.data.local.entities.order.OrderEntity
 import com.tamimattafi.pizza.android.data.local.entities.order.OrderWithPizzaEntity
 import com.tamimattafi.pizza.domain.model.Order
@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 
 class OrdersLocalDataSource(
-    private val dao: OrdersDao
+    private val dao: IOrdersDao
 ) : IOrdersLocalDataSource {
 
     override fun getAll(): Flowable<List<Order>> =

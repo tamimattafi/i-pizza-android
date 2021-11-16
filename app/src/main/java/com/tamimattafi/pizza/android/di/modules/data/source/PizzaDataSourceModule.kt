@@ -2,7 +2,7 @@ package com.tamimattafi.pizza.android.di.modules.data.source
 
 import com.tamimattafi.pizza.android.data.local.IPizzaLocalDataSource
 import com.tamimattafi.pizza.android.data.local.data.PizzaLocalDataSource
-import com.tamimattafi.pizza.android.data.local.database.dao.PizzaDao
+import com.tamimattafi.pizza.android.data.local.database.dao.IPizzaDao
 import com.tamimattafi.pizza.android.data.remote.IPizzaRemoteDataSource
 import com.tamimattafi.pizza.android.data.remote.client.pizza.IPizzaClient
 import com.tamimattafi.pizza.android.data.remote.data.PizzaRemoteDataSource
@@ -13,7 +13,7 @@ import dagger.Provides
 object PizzaDataSourceModule {
 
     @Provides
-    fun provideLocalDataSource(dao: PizzaDao): IPizzaLocalDataSource =
+    fun provideLocalDataSource(dao: IPizzaDao): IPizzaLocalDataSource =
         PizzaLocalDataSource(dao)
 
     @Provides

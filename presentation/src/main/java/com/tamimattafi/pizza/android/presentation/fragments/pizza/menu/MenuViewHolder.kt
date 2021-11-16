@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.menu
+package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -6,7 +6,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.databinding.HolderPizzaBinding
-import com.tamimattafi.pizza.domain.model.Pizza
+import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
 class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -23,12 +23,16 @@ class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun setImageUrl(imageUrl: String) {
         Glide.with(viewBinding.imgPizza)
             .load(imageUrl)
-            .placeholder(R.drawable.ic_pizza_logo)
+            .placeholder(R.drawable.background_primary)
             .into(viewBinding.imgPizza)
     }
 
     fun setPrice(price: Double) {
         //TODO: format and use rouble sign
         viewBinding.txtPrice.text = price.toString()
+    }
+
+    fun setClickListener(onClick: () -> Unit) {
+        viewBinding.root.setClickListener(onClick)
     }
 }
