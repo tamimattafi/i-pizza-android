@@ -6,8 +6,8 @@ import androidx.room.TypeConverters
 import com.tamimattafi.pizza.android.data.local.database.PrimaryDatabase.Config.EXPORT_SCHEME
 import com.tamimattafi.pizza.android.data.local.database.PrimaryDatabase.Config.VERSION
 import com.tamimattafi.pizza.android.data.local.database.converters.DatabaseConverters
-import com.tamimattafi.pizza.android.data.local.database.dao.OrdersDao
-import com.tamimattafi.pizza.android.data.local.database.dao.PizzaDao
+import com.tamimattafi.pizza.android.data.local.database.dao.IOrdersDao
+import com.tamimattafi.pizza.android.data.local.database.dao.IPizzaDao
 import com.tamimattafi.pizza.android.data.local.entities.order.OrderEntity
 import com.tamimattafi.pizza.android.data.local.entities.PizzaEntity
 
@@ -19,8 +19,8 @@ import com.tamimattafi.pizza.android.data.local.entities.PizzaEntity
 @TypeConverters(DatabaseConverters::class)
 abstract class PrimaryDatabase : RoomDatabase() {
 
-    abstract fun pizzaDao(): PizzaDao
-    abstract fun ordersDao(): OrdersDao
+    abstract fun pizzaDao(): IPizzaDao
+    abstract fun ordersDao(): IOrdersDao
 
     object Tables {
         const val PIZZA_TABLE = "pizza"

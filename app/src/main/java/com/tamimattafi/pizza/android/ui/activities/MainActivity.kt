@@ -2,11 +2,10 @@ package com.tamimattafi.pizza.android.ui.activities
 
 import android.os.Bundle
 import com.tamimattafi.pizza.android.R
-import com.tamimattafi.pizza.android.presentation.core.navigation.*
-import com.tamimattafi.pizza.android.presentation.core.navigation.destinations.DialogDestination
-import com.tamimattafi.pizza.android.presentation.core.navigation.destinations.FragmentDestination
-import com.tamimattafi.pizza.android.ui.navigation.DialogProvider
-import com.tamimattafi.pizza.android.ui.navigation.FragmentProvider
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
+import com.tamimattafi.pizza.android.ui.activities.navigation.DialogProvider
+import com.tamimattafi.pizza.android.ui.activities.navigation.FragmentProvider
 import dagger.android.support.DaggerAppCompatActivity
 
 class MainActivity : DaggerAppCompatActivity(), INavigator {
@@ -17,13 +16,13 @@ class MainActivity : DaggerAppCompatActivity(), INavigator {
         setContentView(R.layout.activity_main)
 
         this.openFragment(
-            FragmentDestination.Menu,
+            Destination.Fragment.Menu,
             addPreviousToBackStack = false
         )
     }
 
     override fun openFragment(
-        destination: FragmentDestination,
+        destination: Destination.Fragment,
         addPreviousToBackStack: Boolean
     ) {
         val fragment = FragmentProvider.provide(destination)
@@ -39,7 +38,7 @@ class MainActivity : DaggerAppCompatActivity(), INavigator {
         transaction.commit()
     }
 
-    override fun openDialog(destination: DialogDestination) {
+    override fun openDialog(destination: Destination.Dialog) {
         val dialog = DialogProvider.provide(destination)
         dialog.showNow(supportFragmentManager, dialog.javaClass.name)
     }

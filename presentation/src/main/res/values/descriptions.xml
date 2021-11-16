@@ -2,4 +2,5 @@
 <resources>
     <string name="pizza_photo_description">Pizza photo</string>
     <string name="search_button_description">Search button</string>
+    <string name="swipe_bar_description">Swipe to close</string>
 </resources>

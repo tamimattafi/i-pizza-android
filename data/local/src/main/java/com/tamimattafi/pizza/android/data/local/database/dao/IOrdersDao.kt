@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
 
 @Dao
-interface OrdersDao {
+interface IOrdersDao {
 
     @Query("SELECT * FROM $ORDERS_TABLE ORDER BY pizzaId")
     fun getAll(): Flowable<List<OrderWithPizzaEntity>>

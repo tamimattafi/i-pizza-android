@@ -1,7 +1,7 @@
 package com.tamimattafi.pizza.android.di.components
 
-import com.tamimattafi.pizza.android.di.modules.data.source.local.PrimaryDatabaseModule
-import com.tamimattafi.pizza.android.di.modules.data.source.remote.PrimaryClientModule
+import com.tamimattafi.pizza.android.di.modules.data.source.core.local.PrimaryDatabaseModule
+import com.tamimattafi.pizza.android.di.modules.data.source.core.remote.PrimaryClientModule
 import com.tamimattafi.pizza.android.di.modules.ui.activities.ActivitiesModule
 import com.tamimattafi.pizza.android.di.modules.ui.application.ApplicationModule
 import com.tamimattafi.pizza.android.ui.app.Application

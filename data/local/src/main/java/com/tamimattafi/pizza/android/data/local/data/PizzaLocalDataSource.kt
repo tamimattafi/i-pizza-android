@@ -1,14 +1,14 @@
 package com.tamimattafi.pizza.android.data.local.data
 
 import com.tamimattafi.pizza.android.data.local.IPizzaLocalDataSource
-import com.tamimattafi.pizza.android.data.local.database.dao.PizzaDao
+import com.tamimattafi.pizza.android.data.local.database.dao.IPizzaDao
 import com.tamimattafi.pizza.android.data.local.entities.PizzaEntity
 import com.tamimattafi.pizza.domain.model.Pizza
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 
 class PizzaLocalDataSource(
-    private val dao: PizzaDao
+    private val dao: IPizzaDao
 ) : IPizzaLocalDataSource {
 
     override fun insert(pizza: Pizza): Completable =

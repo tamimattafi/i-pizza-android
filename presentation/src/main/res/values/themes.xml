@@ -1,5 +1,5 @@
 <resources>
-    <style name="AppTheme.Light" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorTextPrimary</item>
         <item name="colorPrimaryDark">@color/colorTextPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,5 +10,22 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="CardView.RoundTop" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardView.RoundTop.Shape</item>
+    </style>
+
+    <style name="CardView.Round.Shape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_size_large</item>
+    </style>
+
+    <style name="CardView.RoundTop.Shape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/radius_size_large</item>
+        <item name="cornerSizeTopLeft">@dimen/radius_size_large</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 </resources>

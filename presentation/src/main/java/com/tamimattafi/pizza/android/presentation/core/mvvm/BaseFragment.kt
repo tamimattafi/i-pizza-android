@@ -1,21 +1,27 @@
 package com.tamimattafi.pizza.android.presentation.core.mvvm
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewbinding.ViewBinding
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
-import com.tamimattafi.pizza.android.presentation.core.navigation.destinations.FragmentDestination
 import com.tamimattafi.pizza.android.presentation.utils.showSnackError
 import dagger.android.support.DaggerFragment
 import io.reactivex.rxjava3.core.Flowable
+import java.util.zip.Inflater
 import javax.inject.Inject
 
-abstract class BaseFragment<T : BaseViewModel>(
-    @LayoutRes contentLayoutId: Int
-) : DaggerFragment(contentLayoutId) {
+abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding>(
+    viewModelClass: Class<VM>,
+    private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
+) : DaggerFragment() {
 
-    abstract val viewModelClass: Class<T>
+    protected lateinit var viewBinding: VB
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider
@@ -27,13 +33,22 @@ abstract class BaseFragment<T : BaseViewModel>(
         viewModelProvider[viewModelClass]
     }
 
-    fun storeDestination(destination: FragmentDestination) {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        viewBinding = bindingBlock.invoke(inflater, container, false)
+        return viewBinding.root
+    }
+
+    fun storeDestination(destination: Destination.Fragment) {
         arguments = Bundle().apply {
             putParcelable(DESTINATION_KEY, destination)
         }
     }
 
-    fun <T : FragmentDestination> getDestination(): T?
+    fun <T : Destination.Fragment> getDestination(): T?
         = requireArguments().getParcelable(DESTINATION_KEY) as? T
 
     protected fun <T : Any> Flowable<T>.observe(

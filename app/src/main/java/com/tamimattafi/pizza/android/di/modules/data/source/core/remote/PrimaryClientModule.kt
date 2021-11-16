@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.di.modules.data.source.remote
+package com.tamimattafi.pizza.android.di.modules.data.source.core.remote
 
 import com.tamimattafi.pizza.android.data.remote.client.order.IOrderClient
 import com.tamimattafi.pizza.android.data.remote.client.pizza.IPizzaClient
