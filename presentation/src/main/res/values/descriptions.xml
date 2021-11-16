@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pizza_photo_description">Pizza photo</string>
+    <string name="search_button_description">Search button</string>
+</resources>
