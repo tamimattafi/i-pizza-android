@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.ui
+package com.tamimattafi.pizza.android.ui.app
 
 import com.tamimattafi.pizza.android.di.components.DaggerApplicationComponent
 import dagger.android.AndroidInjector

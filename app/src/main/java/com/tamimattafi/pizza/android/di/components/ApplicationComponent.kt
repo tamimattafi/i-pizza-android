@@ -4,7 +4,7 @@ import com.tamimattafi.pizza.android.di.modules.data.source.local.PrimaryDatabas
 import com.tamimattafi.pizza.android.di.modules.data.source.remote.PrimaryClientModule
 import com.tamimattafi.pizza.android.di.modules.ui.activities.ActivitiesModule
 import com.tamimattafi.pizza.android.di.modules.ui.application.ApplicationModule
-import com.tamimattafi.pizza.android.ui.Application
+import com.tamimattafi.pizza.android.ui.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
