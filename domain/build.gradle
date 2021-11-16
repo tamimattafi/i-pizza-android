@@ -9,6 +9,6 @@ java {
 }
 
 dependencies {
-    //RxJava for JVM, independent from android framework
+    //RxJava for JVM, platform-independent
     implementation "io.reactivex.rxjava3:rxjava:3.1.2"
 }
