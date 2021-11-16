@@ -15,12 +15,12 @@
         android:text="@string/pizza_menu_title"
         android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/text_size_large"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnSearch"
         android:padding="@dimen/margin_size_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

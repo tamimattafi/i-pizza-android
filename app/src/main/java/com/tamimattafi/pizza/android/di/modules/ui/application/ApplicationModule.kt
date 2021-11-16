@@ -1,7 +1,7 @@
 package com.tamimattafi.pizza.android.di.modules.ui.application
 
 import android.content.Context
-import com.tamimattafi.pizza.android.ui.Application
+import com.tamimattafi.pizza.android.ui.app.Application
 import dagger.Binds
 import dagger.Module
 
