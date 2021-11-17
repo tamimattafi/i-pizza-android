@@ -2,9 +2,6 @@ package com.tamimattafi.pizza.android.presentation.dialogs.pizza.details
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isGone
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseBottomSheet
@@ -32,13 +29,8 @@ class PizzaDetailsDialog : BaseBottomSheet<PizzaDetailsViewModel, DialogPizzaDet
             setPrice(pizza.price)
         }
 
-        orderAddObservable.observe {
+        dismissObservable.observe {
             dismiss()
-        }
-
-        loadingObservable.observe { isLoading ->
-            viewBinding.progressLoading.isGone = !isLoading
-            viewBinding.layerData.isInvisible = isLoading
         }
     }
 
@@ -63,8 +55,7 @@ class PizzaDetailsDialog : BaseBottomSheet<PizzaDetailsViewModel, DialogPizzaDet
             .into(viewBinding.imgPizza)
     }
 
-    fun setPrice(price: Double) {
-        //TODO: format and use rouble sign
-
+    private fun setPrice(price: Double) {
+        viewBinding.txtPrice.text = price.toString()
     }
 }

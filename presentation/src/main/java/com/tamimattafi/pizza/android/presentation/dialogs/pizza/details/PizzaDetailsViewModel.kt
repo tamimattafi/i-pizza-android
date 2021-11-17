@@ -18,30 +18,22 @@ class PizzaDetailsViewModel(
     private val pizzaProcessor = BehaviorProcessor.create<Pizza>()
     val pizzaObservable: Flowable<Pizza> get() = pizzaProcessor
 
-    private val orderAddProcessor = PublishProcessor.create<Unit>()
-    val orderAddObservable: Flowable<Unit> get() = orderAddProcessor
-
-    private val loadingProcessor = PublishProcessor.create<Boolean>()
-    val loadingObservable: Flowable<Boolean> get() = loadingProcessor
+    private val dismissProcessor = PublishProcessor.create<Unit>()
+    val dismissObservable: Flowable<Unit> get() = dismissProcessor
 
     init {
-        loadingProcessor.onNext(true)
         pizzaGet(pizzaId)
             .distinctUntilChanged()
             .observeOn(Schedulers.io())
-            .doOnNext {
-                loadingProcessor.onNext(false)
-            }.subscribe(pizzaProcessor)
+            .subscribe(pizzaProcessor)
     }
 
     fun addPizzaToCart() {
-        loadingProcessor.onNext(true)
         val pizza = requireNotNull(pizzaProcessor.value)
-        orderAdd(pizza.id).doOnComplete {
-            loadingProcessor.onNext(false)
-        }.toSingleDefault(Unit)
-        .toFlowable()
-        .subscribeOn(Schedulers.io())
-        .subscribe(orderAddProcessor)
+        orderAdd(pizza.id)
+            .toSingleDefault(Unit)
+            .toFlowable()
+            .subscribeOn(Schedulers.io())
+            .subscribe(dismissProcessor)
     }
 }

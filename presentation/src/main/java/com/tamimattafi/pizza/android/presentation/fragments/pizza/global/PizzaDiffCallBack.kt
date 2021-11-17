@@ -1,9 +1,9 @@
-package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
+package com.tamimattafi.pizza.android.presentation.fragments.pizza.global
 
 import com.tamimattafi.pizza.android.presentation.core.recycler.SimpleDiffUtilCallback
 import com.tamimattafi.pizza.domain.model.Pizza
 
-class MenuDiffCallBack(
+class PizzaDiffCallBack(
     oldData: List<Pizza>,
     newData: List<Pizza>
 ) : SimpleDiffUtilCallback<Pizza>(

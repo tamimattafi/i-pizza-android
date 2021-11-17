@@ -4,6 +4,7 @@ import com.tamimattafi.pizza.android.di.modules.data.repository.PizzaRepositoryM
 import com.tamimattafi.pizza.android.di.modules.data.source.PizzaDataSourceModule
 import com.tamimattafi.pizza.android.di.modules.data.usecase.PizzaUseCasesModule
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.menu.MenuFragment
+import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -17,4 +18,12 @@ interface FragmentsModule {
         PizzaDataSourceModule::class
     ])
     fun menuFragment(): MenuFragment
+
+    @ContributesAndroidInjector(modules = [
+        SearchModule::class,
+        PizzaUseCasesModule::class,
+        PizzaRepositoryModule::class,
+        PizzaDataSourceModule::class
+    ])
+    fun searchFragment(): SearchFragment
 }
