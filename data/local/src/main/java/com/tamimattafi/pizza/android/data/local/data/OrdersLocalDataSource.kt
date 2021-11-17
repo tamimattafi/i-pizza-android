@@ -5,9 +5,9 @@ import com.tamimattafi.pizza.android.data.local.IOrdersLocalDataSource
 import com.tamimattafi.pizza.android.data.local.database.dao.IOrdersDao
 import com.tamimattafi.pizza.android.data.local.entities.order.OrderEntity
 import com.tamimattafi.pizza.android.data.local.entities.order.OrderWithPizzaEntity
-import com.tamimattafi.pizza.domain.model.Order
-import com.tamimattafi.pizza.domain.model.Order.Defaults.DEFAULT_QUANTITY_STEP
-import com.tamimattafi.pizza.domain.model.Order.Defaults.MIN_QUANTITY
+import com.tamimattafi.pizza.domain.model.order.Order
+import com.tamimattafi.pizza.domain.model.order.Order.Defaults.DEFAULT_QUANTITY_STEP
+import com.tamimattafi.pizza.domain.model.order.Order.Defaults.MIN_QUANTITY
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 
@@ -28,7 +28,7 @@ class OrdersLocalDataSource(
             }.flatMapCompletable { order ->
                 val newQuantity = order.quantity + DEFAULT_QUANTITY_STEP
                 val newOrder = order.copy(quantity = newQuantity)
-                dao.update(newOrder)
+                dao.insert(newOrder)
             }
 
     override fun remove(pizzaId: Int): Completable =
@@ -39,7 +39,7 @@ class OrdersLocalDataSource(
                     dao.remove(order)
                 } else {
                     val newOrder = order.copy(quantity = newQuantity)
-                    dao.update(newOrder)
+                    dao.insert(newOrder)
                 }
             }
 

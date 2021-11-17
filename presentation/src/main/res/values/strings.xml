@@ -3,4 +3,9 @@
     <string name="pizza_menu_title">Menu</string>
     <string name="add_to_card_label">Add to cart</string>
     <string name="pizza_search_hint">Write something</string>
+    <string name="orders_title">Cart</string>
+    <string name="place_order_label">Place order</string>
+    <string name="checkout_label">Checkout</string>
+    <string name="order_success_label">Order was successfully sent!</string>
+    <string name="order_success_description">We will call you soon to confirm order details</string>
 </resources>

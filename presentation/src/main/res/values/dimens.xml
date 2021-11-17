@@ -11,8 +11,11 @@
     <dimen name="margin_size_small">8dp</dimen>
 
     <dimen name="radius_size_large">18dp</dimen>
+    <dimen name="radius_size_small">8dp</dimen>
 
     <dimen name="elevation_size_extra_large">16dp</dimen>
     <dimen name="elevation_size_large">8dp</dimen>
     <dimen name="elevation_size_none">0dp</dimen>
+    <dimen name="image_height_medium">136dp</dimen>
+    <dimen name="button_size_small">38dp</dimen>
 </resources>

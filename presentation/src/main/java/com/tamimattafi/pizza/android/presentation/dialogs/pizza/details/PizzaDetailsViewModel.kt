@@ -1,6 +1,7 @@
 package com.tamimattafi.pizza.android.presentation.dialogs.pizza.details
 
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseViewModel
+import com.tamimattafi.pizza.android.presentation.utils.subscribeToProcessor
 import com.tamimattafi.pizza.domain.model.Pizza
 import com.tamimattafi.pizza.domain.usecase.order.OrderAdd
 import com.tamimattafi.pizza.domain.usecase.pizza.PizzaGet
@@ -22,18 +23,11 @@ class PizzaDetailsViewModel(
     val dismissObservable: Flowable<Unit> get() = dismissProcessor
 
     init {
-        pizzaGet(pizzaId)
-            .distinctUntilChanged()
-            .observeOn(Schedulers.io())
-            .subscribe(pizzaProcessor)
+        pizzaGet(pizzaId).subscribe(pizzaProcessor)
     }
 
     fun addPizzaToCart() {
         val pizza = requireNotNull(pizzaProcessor.value)
-        orderAdd(pizza.id)
-            .toSingleDefault(Unit)
-            .toFlowable()
-            .subscribeOn(Schedulers.io())
-            .subscribe(dismissProcessor)
+        orderAdd(pizza.id).subscribeToProcessor(dismissProcessor)
     }
 }

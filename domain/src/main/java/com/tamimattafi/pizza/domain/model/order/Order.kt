@@ -1,4 +1,6 @@
-package com.tamimattafi.pizza.domain.model
+package com.tamimattafi.pizza.domain.model.order
+
+import com.tamimattafi.pizza.domain.model.Pizza
 
 data class Order(
     val pizza: Pizza,

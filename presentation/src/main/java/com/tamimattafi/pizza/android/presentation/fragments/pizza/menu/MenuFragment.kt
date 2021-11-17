@@ -2,7 +2,8 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 
 import android.os.Bundle
 import android.view.View
-import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseFragment
+import androidx.core.view.isGone
+import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.global.PizzaRecyclerAdapter
@@ -10,7 +11,7 @@ import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class MenuFragment : BaseFragment<MenuViewModel, FragmentMenuBinding>(
+class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
     MenuViewModel::class.java,
     FragmentMenuBinding::inflate
 ), PizzaRecyclerAdapter.IEventListener {
@@ -32,16 +33,28 @@ class MenuFragment : BaseFragment<MenuViewModel, FragmentMenuBinding>(
                 addPreviousToBackStack = true
             )
         }
-    }
 
-    private fun setUpObservers() {
-        viewModel.pizzaListObservable.observe { pizzaList ->
-            recyclerAdapter.updateData(pizzaList)
+        btnCheckout.setClickListener {
+            navigator.openFragment(Destination.Fragment.Cart)
         }
     }
 
-    private fun setUpRecyclerView() {
-        viewBinding.recycler.adapter = recyclerAdapter
+    private fun setUpObservers() = with(viewModel) {
+        pizzaListObservable.observe { pizzaList ->
+            recyclerAdapter.updateData(pizzaList)
+        }
+
+        totalPriceObservable.observe { totalPrice ->
+            viewBinding.rootActionButton.isGone = totalPrice == 0.0
+
+            //TODO: format and use rouble sign
+            viewBinding.txtPrice.text = totalPrice.toString()
+        }
+    }
+
+    private fun setUpRecyclerView() = with(viewBinding.recycler) {
+        itemAnimator = null
+        adapter = recyclerAdapter
     }
 
     override fun onItemClick(pizza: Pizza) {

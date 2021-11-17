@@ -1,6 +1,6 @@
 package com.tamimattafi.pizza.domain.repository
 
-import com.tamimattafi.pizza.domain.model.Order
+import com.tamimattafi.pizza.domain.model.order.Order
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 

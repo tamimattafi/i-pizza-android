@@ -12,20 +12,20 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_bold"
         android:padding="@dimen/margin_size_medium"
-        android:text="@string/pizza_menu_title"
+        android:text="@string/orders_title"
         android:textColor="?attr/colorPrimary"
         android:textSize="@dimen/text_size_large"
-        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+        app:layout_constraintEnd_toStartOf="@+id/btnClear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btnSearch"
+        android:id="@+id/btnClear"
         android:padding="@dimen/margin_size_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_search"
+        android:src="@drawable/ic_clear"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,17 +36,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/rootActionButton"
+        app:layout_constraintBottom_toTopOf="@+id/rootActionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:listitem="@layout/holder_pizza" />
+        tools:listitem="@layout/holder_order" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rootActionButton"
         style="@style/CardView.RoundTop"
-        android:visibility="gone"
-        tools:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
@@ -58,7 +56,7 @@
         app:shapeAppearanceOverlay="@style/CardView.RoundTop.Shape">
 
         <RelativeLayout
-            android:id="@+id/btnCheckout"
+            android:id="@+id/btnPlaceOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -72,7 +70,7 @@
                 android:layout_toStartOf="@id/txtPrice"
                 android:fontFamily="@font/lato_bold"
                 android:padding="@dimen/margin_size_large"
-                android:text="@string/checkout_label"
+                android:text="@string/place_order_label"
                 android:textColor="?attr/colorPrimary"
                 android:textSize="@dimen/text_size_small" />
 
