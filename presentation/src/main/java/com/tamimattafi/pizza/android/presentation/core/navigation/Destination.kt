@@ -22,6 +22,9 @@ sealed interface Destination : Parcelable {
         class PizzaGallery(
             val pizzaId: Int
         ) : Fragment
+
+        @Parcelize
+        object Search : Fragment
     }
 }
 

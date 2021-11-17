@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
+package com.tamimattafi.pizza.android.presentation.fragments.pizza.global
 
 import android.view.ViewGroup
 import com.tamimattafi.pizza.android.presentation.R
@@ -7,16 +7,16 @@ import com.tamimattafi.pizza.android.presentation.utils.inflate
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class MenuRecyclerAdapter @Inject constructor(
+class PizzaRecyclerAdapter @Inject constructor(
     private val eventListener: IEventListener
-) : SimpleRecyclerAdapter<Pizza, MenuViewHolder>() {
+) : SimpleRecyclerAdapter<Pizza, PizzaViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
         val view = parent.inflate(R.layout.holder_pizza)
-        return MenuViewHolder(view)
+        return PizzaViewHolder(view)
     }
 
-    override fun bindHolder(holder: MenuViewHolder, item: Pizza) {
+    override fun bindHolder(holder: PizzaViewHolder, item: Pizza) {
         holder.apply {
             setName(item.name)
             setDescription(item.description)
@@ -31,7 +31,7 @@ class MenuRecyclerAdapter @Inject constructor(
     }
 
     override fun createDiffCallback(oldData: List<Pizza>, newData: List<Pizza>)
-        = MenuDiffCallBack(oldData, newData)
+        = PizzaDiffCallBack(oldData, newData)
 
     interface IEventListener {
         fun onItemClick(pizza: Pizza)

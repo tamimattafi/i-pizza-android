@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
+package com.tamimattafi.pizza.android.presentation.fragments.pizza.global
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +8,7 @@ import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.databinding.HolderPizzaBinding
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
-class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class PizzaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val viewBinding by viewBinding(HolderPizzaBinding::bind)
 

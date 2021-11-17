@@ -18,7 +18,7 @@ interface IPizzaDao {
     @Query("SELECT * FROM $PIZZA_TABLE WHERE id = :id")
     fun getById(id: Int): Flowable<PizzaEntity>
 
-    @Query("SELECT * FROM $PIZZA_TABLE WHERE name LIKE :query || description LIKE :query")
+    @Query("SELECT * FROM $PIZZA_TABLE WHERE name LIKE '%' || :query || '%'")
     fun search(query: String): Flowable<List<PizzaEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

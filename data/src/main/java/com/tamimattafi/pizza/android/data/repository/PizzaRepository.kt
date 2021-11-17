@@ -21,8 +21,9 @@ class PizzaRepository(
             this.syncPizzaList()
         }
 
-    override fun search(query: String): Flowable<List<Pizza>> =
-        local.search(query)
+    override fun search(query: String?): Flowable<List<Pizza>> =
+        if (query.isNullOrBlank()) local.getAll()
+        else local.search(query)
 
     private fun syncPizzaList() =
         remote.getAll()
