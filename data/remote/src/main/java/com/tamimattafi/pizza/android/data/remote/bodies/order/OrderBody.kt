@@ -1,7 +1,7 @@
 package com.tamimattafi.pizza.android.data.remote.bodies.order
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.tamimattafi.pizza.domain.model.Order
+import com.tamimattafi.pizza.domain.model.order.Order
 
 data class OrderBody(
     @JsonProperty(value = "pizzaId", required = true)

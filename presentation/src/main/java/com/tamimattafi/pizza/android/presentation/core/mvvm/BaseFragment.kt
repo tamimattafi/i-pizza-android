@@ -53,7 +53,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding>(
 
     protected fun <T : Any> Flowable<T>.observe(
         onError: (Throwable) -> Unit = ::handleError,
-        onNext: (T) -> Unit
+        onNext: (T) -> Unit = {}
     ) {
         val observer = LifecycleObserver(
             observable = this,

@@ -20,9 +20,6 @@ class SearchViewModel @Inject constructor(
     }
 
     fun searchPizza(query: String?) {
-        pizzaSearch(query)
-            .distinctUntilChanged()
-            .subscribeOn(Schedulers.io())
-            .subscribe(pizzaListProcessor)
+        pizzaSearch(query).subscribe(pizzaListProcessor)
     }
 }

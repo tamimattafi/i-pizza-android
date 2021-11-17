@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.di.modules.ui.fragments
+package com.tamimattafi.pizza.android.di.modules.ui.fragments.pizza
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner

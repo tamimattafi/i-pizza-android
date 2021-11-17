@@ -2,6 +2,7 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isGone
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
@@ -32,16 +33,28 @@ class MenuFragment : BaseFragment<MenuViewModel, FragmentMenuBinding>(
                 addPreviousToBackStack = true
             )
         }
-    }
 
-    private fun setUpObservers() {
-        viewModel.pizzaListObservable.observe { pizzaList ->
-            recyclerAdapter.updateData(pizzaList)
+        btnCheckout.setClickListener {
+            navigator.openFragment(Destination.Fragment.Orders)
         }
     }
 
-    private fun setUpRecyclerView() {
-        viewBinding.recycler.adapter = recyclerAdapter
+    private fun setUpObservers() = with(viewModel) {
+        pizzaListObservable.observe { pizzaList ->
+            recyclerAdapter.updateData(pizzaList)
+        }
+
+        totalPriceObservable.observe { totalPrice ->
+            viewBinding.rootActionButton.isGone = totalPrice == 0.0
+
+            //TODO: format and use rouble sign
+            viewBinding.txtPrice.text = totalPrice.toString()
+        }
+    }
+
+    private fun setUpRecyclerView() = with(viewBinding.recycler) {
+        itemAnimator = null
+        adapter = recyclerAdapter
     }
 
     override fun onItemClick(pizza: Pizza) {

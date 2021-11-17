@@ -17,7 +17,7 @@ interface IOrdersDao {
     @Query("SELECT * FROM $ORDERS_TABLE WHERE pizzaId = :pizzaId")
     fun getByPizzaId(pizzaId: Int): Single<OrderEntity>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(orderEntity: OrderEntity): Completable
 
     @Update

@@ -25,6 +25,9 @@ sealed interface Destination : Parcelable {
 
         @Parcelize
         object Search : Fragment
+
+        @Parcelize
+        object Orders : Fragment
     }
 }
 
