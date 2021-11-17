@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.orders
+package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import android.view.ViewGroup
 import com.tamimattafi.pizza.android.presentation.R
@@ -8,16 +8,16 @@ import com.tamimattafi.pizza.domain.model.order.Order
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class OrdersRecyclerAdapter @Inject constructor(
+class CartRecyclerAdapter @Inject constructor(
     private val eventListener: IEventListener
-) : SimpleRecyclerAdapter<Order, OrderViewHolder>() {
+) : SimpleRecyclerAdapter<Order, CartViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val view = parent.inflate(R.layout.holder_order)
-        return OrderViewHolder(view)
+        return CartViewHolder(view)
     }
 
-    override fun bindHolder(holder: OrderViewHolder, item: Order) {
+    override fun bindHolder(holder: CartViewHolder, item: Order) {
         bindPizza(holder, item.pizza)
 
         holder.apply {
@@ -37,7 +37,7 @@ class OrdersRecyclerAdapter @Inject constructor(
         }
     }
 
-    private fun bindPizza(holder: OrderViewHolder, pizza: Pizza) =
+    private fun bindPizza(holder: CartViewHolder, pizza: Pizza) =
         holder.apply {
             setName(pizza.name)
             val firstImage = pizza.imageUrls.first()
@@ -46,7 +46,7 @@ class OrdersRecyclerAdapter @Inject constructor(
         }
 
     override fun createDiffCallback(oldData: List<Order>, newData: List<Order>)
-        = OrdersDiffCallBack(oldData, newData)
+        = CartDiffCallBack(oldData, newData)
 
     interface IEventListener {
         fun onItemClick(order: Order)

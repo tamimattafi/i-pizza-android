@@ -1,21 +1,21 @@
-package com.tamimattafi.pizza.android.presentation.fragments.orders
+package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import android.os.Bundle
 import android.view.View
-import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseFragment
+import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
-import com.tamimattafi.pizza.android.presentation.databinding.FragmentOrdersBinding
+import com.tamimattafi.pizza.android.presentation.databinding.FragmentCartBinding
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import com.tamimattafi.pizza.domain.model.order.Order
 import javax.inject.Inject
 
-class OrdersFragment : BaseFragment<OrdersViewModel, FragmentOrdersBinding>(
-    OrdersViewModel::class.java,
-    FragmentOrdersBinding::inflate
-), OrdersRecyclerAdapter.IEventListener {
+class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
+    CartViewModel::class.java,
+    FragmentCartBinding::inflate
+), CartRecyclerAdapter.IEventListener {
 
     @Inject
-    lateinit var recyclerAdapter: OrdersRecyclerAdapter
+    lateinit var recyclerAdapter: CartRecyclerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,14 +37,14 @@ class OrdersFragment : BaseFragment<OrdersViewModel, FragmentOrdersBinding>(
         }
 
         dismissObservable.observe {
-            navigator.openFragment(
-                Destination.Fragment.Menu,
-                addPreviousToBackStack = false
-            )
+            navigator.toDirection(Destination.Direction.Back)
         }
 
         orderSubmitObservable.observe {
-            //TODO: open order complete fragment
+            navigator.openFragment(
+                Destination.Fragment.OrderSuccess,
+                addPreviousToBackStack = false
+            )
         }
 
         errorObservable.observe()

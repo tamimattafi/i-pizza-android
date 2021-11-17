@@ -1,9 +1,10 @@
 package com.tamimattafi.pizza.android.di.modules.ui.fragments
 
-import com.tamimattafi.pizza.android.di.modules.ui.fragments.orders.OrdersModule
+import com.tamimattafi.pizza.android.di.modules.ui.fragments.orders.CartModule
 import com.tamimattafi.pizza.android.di.modules.ui.fragments.pizza.MenuModule
 import com.tamimattafi.pizza.android.di.modules.ui.fragments.pizza.SearchModule
-import com.tamimattafi.pizza.android.presentation.fragments.orders.OrdersFragment
+import com.tamimattafi.pizza.android.presentation.fragments.orders.cart.CartFragment
+import com.tamimattafi.pizza.android.presentation.fragments.orders.success.OrderSuccessFragment
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.menu.MenuFragment
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchFragment
 import dagger.Module
@@ -18,6 +19,9 @@ interface FragmentsModule {
     @ContributesAndroidInjector(modules = [SearchModule::class])
     fun searchFragment(): SearchFragment
 
-    @ContributesAndroidInjector(modules = [OrdersModule::class])
-    fun ordersFragment(): OrdersFragment
+    @ContributesAndroidInjector(modules = [CartModule::class])
+    fun cartFragment(): CartFragment
+
+    @ContributesAndroidInjector
+    fun orderSuccessFragment(): OrderSuccessFragment
 }

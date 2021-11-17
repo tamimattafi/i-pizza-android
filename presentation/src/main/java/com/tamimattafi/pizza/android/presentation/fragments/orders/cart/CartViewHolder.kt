@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.orders
+package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +9,7 @@ import com.tamimattafi.pizza.android.presentation.databinding.HolderOrderBinding
 import com.tamimattafi.pizza.android.presentation.databinding.HolderPizzaBinding
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
-class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val viewBinding by viewBinding(HolderOrderBinding::bind)
 

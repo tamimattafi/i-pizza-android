@@ -21,6 +21,11 @@ class MainActivity : DaggerAppCompatActivity(), INavigator {
         )
     }
 
+    override fun toDirection(destination: Destination.Direction) =
+        when(destination) {
+            Destination.Direction.Back -> onBackPressed()
+        }
+
     override fun openFragment(
         destination: Destination.Fragment,
         addPreviousToBackStack: Boolean
@@ -32,10 +37,10 @@ class MainActivity : DaggerAppCompatActivity(), INavigator {
         )
 
         if (addPreviousToBackStack) {
-            transaction.addToBackStack(fragment.javaClass.name)
+            transaction.addToBackStack(null).commit()
+        } else {
+            transaction.commitNow()
         }
-
-        transaction.commit()
     }
 
     override fun openDialog(destination: Destination.Dialog) {

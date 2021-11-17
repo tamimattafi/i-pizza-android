@@ -3,15 +3,14 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.search
 import android.os.Bundle
 import android.view.View
 import androidx.core.widget.addTextChangedListener
-import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseFragment
+import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentSearchBinding
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.global.PizzaRecyclerAdapter
-import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>(
+class SearchFragment : ModelHostFragment<SearchViewModel, FragmentSearchBinding>(
     SearchViewModel::class.java,
     FragmentSearchBinding::inflate
 ), PizzaRecyclerAdapter.IEventListener {

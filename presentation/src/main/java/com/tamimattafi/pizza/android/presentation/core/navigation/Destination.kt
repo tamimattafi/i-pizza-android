@@ -3,9 +3,14 @@ package com.tamimattafi.pizza.android.presentation.core.navigation
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-sealed interface Destination : Parcelable {
+sealed interface Destination {
 
-    sealed interface Dialog : Destination {
+    sealed interface Direction : Destination {
+
+        object Back : Direction
+    }
+
+    sealed interface Dialog : Destination, Parcelable {
 
         @Parcelize
         class PizzaDetails(
@@ -13,7 +18,7 @@ sealed interface Destination : Parcelable {
         ) : Dialog
     }
 
-    sealed interface Fragment : Destination {
+    sealed interface Fragment : Destination, Parcelable {
 
         @Parcelize
         object Menu : Fragment
@@ -27,7 +32,10 @@ sealed interface Destination : Parcelable {
         object Search : Fragment
 
         @Parcelize
-        object Orders : Fragment
+        object Cart : Fragment
+
+        @Parcelize
+        object OrderSuccess : Fragment
     }
 }
 

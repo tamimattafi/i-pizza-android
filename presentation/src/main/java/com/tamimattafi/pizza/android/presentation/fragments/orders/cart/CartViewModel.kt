@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.orders
+package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseViewModel
 import com.tamimattafi.pizza.android.presentation.utils.subscribeToProcessor
@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.processors.BehaviorProcessor
 import io.reactivex.rxjava3.processors.PublishProcessor
 import javax.inject.Inject
 
-class OrdersViewModel @Inject constructor(
+class CartViewModel @Inject constructor(
     orderGetWithTotal: OrderGetWithTotal,
     private val orderAdd: OrderAdd,
     private val orderRemove: OrderRemove,

@@ -1,10 +1,10 @@
-package com.tamimattafi.pizza.android.presentation.fragments.orders
+package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import com.tamimattafi.pizza.android.presentation.core.recycler.SimpleDiffUtilCallback
 import com.tamimattafi.pizza.domain.model.order.Order
 import com.tamimattafi.pizza.domain.model.Pizza
 
-class OrdersDiffCallBack(
+class CartDiffCallBack(
     oldData: List<Order>,
     newData: List<Order>
 ) : SimpleDiffUtilCallback<Order>(

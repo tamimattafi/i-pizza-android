@@ -16,22 +16,14 @@ import io.reactivex.rxjava3.core.Flowable
 import java.util.zip.Inflater
 import javax.inject.Inject
 
-abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding>(
-    viewModelClass: Class<VM>,
+abstract class BaseFragment<VB: ViewBinding>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : DaggerFragment() {
 
     protected lateinit var viewBinding: VB
 
     @Inject
-    lateinit var viewModelProvider: ViewModelProvider
-
-    @Inject
     lateinit var navigator: INavigator
-
-    protected val viewModel by lazy {
-        viewModelProvider[viewModelClass]
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,24 +41,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB: ViewBinding>(
     }
 
     fun <T : Destination.Fragment> getDestination(): T?
-        = requireArguments().getParcelable(DESTINATION_KEY) as? T
-
-    protected fun <T : Any> Flowable<T>.observe(
-        onError: (Throwable) -> Unit = ::handleError,
-        onNext: (T) -> Unit = {}
-    ) {
-        val observer = LifecycleObserver(
-            observable = this,
-            onNext,
-            onError
-        )
-
-        lifecycle.addObserver(observer)
-    }
-
-    protected open fun handleError(error: Throwable) {
-        this.showSnackError(error)
-    }
+            = requireArguments().getParcelable(DESTINATION_KEY) as? T
 
     private companion object {
         const val DESTINATION_KEY = "destination"

@@ -6,4 +6,6 @@
     <string name="orders_title">Cart</string>
     <string name="place_order_label">Place order</string>
     <string name="checkout_label">Checkout</string>
+    <string name="order_success_label">Order was successfully sent!</string>
+    <string name="order_success_description">We will call you soon to confirm order details</string>
 </resources>
