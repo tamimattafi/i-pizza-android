@@ -10,16 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.FrameLayout
 import androidx.annotation.CallSuper
-import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
 import com.tamimattafi.pizza.android.presentation.utils.showSnackError
@@ -29,13 +25,6 @@ import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
-import androidx.core.view.ViewCompat
-import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-
-import com.google.android.material.shape.MaterialShapeDrawable
-import com.tamimattafi.pizza.android.presentation.utils.addStateChangeListener
-import com.tamimattafi.pizza.android.presentation.utils.createMaterialShapeDrawable
-
 
 abstract class BaseBottomSheet<VM : BaseViewModel, VB: ViewBinding>(
     viewModelClass: Class<VM>,

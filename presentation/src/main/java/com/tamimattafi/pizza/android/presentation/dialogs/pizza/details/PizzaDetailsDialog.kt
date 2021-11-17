@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseBottomSheet
@@ -32,7 +31,7 @@ class PizzaDetailsDialog : BaseBottomSheet<PizzaDetailsViewModel, DialogPizzaDet
             setPrice(pizza.price)
         }
 
-        orderAddObservable.observe {
+        dismissObservable.observe {
             dismiss()
         }
 

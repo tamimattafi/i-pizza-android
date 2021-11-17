@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CardView.RoundTop" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/CardView.RoundTop.Shape</item>
+    </style>
+
+    <style name="CardView.Round.Shape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_size_large</item>
+    </style>
+
+    <style name="CardView.RoundTop.Shape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/radius_size_large</item>
+        <item name="cornerSizeTopLeft">@dimen/radius_size_large</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="AppTheme.Light.Sheet" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppTheme.Light.Modal.Round</item>
+    </style>
+
+    <style name="AppTheme.Light.Modal.Round" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/background_bottom_sheet</item>
+    </style>
+</resources>
