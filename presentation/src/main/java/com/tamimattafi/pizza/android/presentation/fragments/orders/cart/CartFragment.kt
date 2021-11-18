@@ -34,6 +34,11 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
 
     private fun setUpObservers() = with(viewModel) {
         ordersListObservable.observe { ordersTotal ->
+            if (ordersTotal.orders.isEmpty()) {
+                navigator.toDirection(Destination.Direction.Back)
+                return@observe
+            }
+
             recyclerAdapter.updateData(ordersTotal.orders)
 
             val formattedPrice = ordersTotal.totalPrice.beautifyDouble()
