@@ -3,6 +3,7 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isGone
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
@@ -10,6 +11,7 @@ import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBindin
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
+import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
@@ -58,7 +60,7 @@ class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
     }
 
     private fun setUpRecyclerView() = with(viewBinding.recycler) {
-        itemAnimator = null
+        supportsChangeAnimations = false
         adapter = recyclerAdapter
     }
 

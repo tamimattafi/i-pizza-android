@@ -7,6 +7,7 @@ import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentSearchBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
+import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
@@ -37,8 +38,9 @@ class SearchFragment : ModelHostFragment<SearchViewModel, FragmentSearchBinding>
         }
     }
 
-    private fun setUpRecyclerView() {
-        viewBinding.recycler.adapter = recyclerAdapter
+    private fun setUpRecyclerView() = with(viewBinding.recycler) {
+        supportsChangeAnimations = false
+        adapter = recyclerAdapter
     }
 
     override fun onItemClick(pizza: Pizza) {

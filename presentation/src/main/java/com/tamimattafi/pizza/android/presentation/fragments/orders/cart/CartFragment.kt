@@ -8,6 +8,7 @@ import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentCartBinding
 import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
+import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.order.Order
 import javax.inject.Inject
 
@@ -57,7 +58,7 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
     }
 
     private fun setUpRecyclerView() = with(viewBinding.recycler) {
-        itemAnimator = null
+        supportsChangeAnimations = false
         adapter = recyclerAdapter
     }
 

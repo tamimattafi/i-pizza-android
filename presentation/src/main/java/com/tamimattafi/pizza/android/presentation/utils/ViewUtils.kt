@@ -4,7 +4,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.viewpager2.widget.ViewPager2
+
+var RecyclerView.supportsChangeAnimations: Boolean
+    set(value) {
+        val itemAnimator = itemAnimator as? SimpleItemAnimator ?: return
+        itemAnimator.supportsChangeAnimations = value
+    }
+    get() {
+        val itemAnimator = itemAnimator as? SimpleItemAnimator ?: return false
+        return itemAnimator.supportsChangeAnimations
+    }
 
 fun ViewGroup.inflate(
     @LayoutRes layoutId: Int,
