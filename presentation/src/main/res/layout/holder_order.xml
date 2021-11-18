@@ -28,6 +28,7 @@
 
         <TextView
             android:id="@+id/txtName"
+            android:maxLines="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato_bold"
@@ -86,6 +87,7 @@
 
         <TextView
             android:id="@+id/txtQuantity"
+            android:maxLines="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato_bold"
