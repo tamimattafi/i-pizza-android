@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.databinding.HolderOrderBinding
 import com.tamimattafi.pizza.android.presentation.databinding.HolderPizzaBinding
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
 class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,8 +26,11 @@ class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun setPrice(price: Double) {
-        //TODO: format and use rouble sign
-        viewBinding.txtPrice.text = price.toString()
+        val formattedPrice = price.beautifyDouble()
+        viewBinding.txtPrice.text = itemView.context.getString(
+            R.string.price_template,
+            formattedPrice
+        )
     }
 
     fun setQuantity(quantity: Int) {

@@ -9,6 +9,7 @@ import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentGalleryBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.images.ImagesRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.addPageChangeListener
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import javax.inject.Inject
 
@@ -71,6 +72,10 @@ class GalleryFragment : ModelHostFragment<GalleryViewModel, FragmentGalleryBindi
     }
 
     private fun setPrice(price: Double) {
-        viewBinding.txtPrice.text = price.toString()
+        val formattedPrice = price.beautifyDouble()
+        viewBinding.txtPrice.text = requireContext().getString(
+            R.string.price_template,
+            formattedPrice
+        )
     }
 }

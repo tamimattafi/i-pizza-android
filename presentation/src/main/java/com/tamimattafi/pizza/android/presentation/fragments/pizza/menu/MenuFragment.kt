@@ -3,10 +3,12 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isGone
+import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
@@ -47,8 +49,11 @@ class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
         totalPriceObservable.observe { totalPrice ->
             viewBinding.rootActionButton.isGone = totalPrice == 0.0
 
-            //TODO: format and use rouble sign
-            viewBinding.txtPrice.text = totalPrice.toString()
+            val formattedPrice = totalPrice.beautifyDouble()
+            viewBinding.txtPrice.text = requireContext().getString(
+                R.string.price_template,
+                formattedPrice
+            )
         }
     }
 

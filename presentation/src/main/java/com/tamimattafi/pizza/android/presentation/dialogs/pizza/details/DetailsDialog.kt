@@ -7,6 +7,7 @@ import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseBottomSheet
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.DialogPizzaDetailsBinding
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
 class DetailsDialog : BaseBottomSheet<DetailsViewModel, DialogPizzaDetailsBinding>(
@@ -62,6 +63,10 @@ class DetailsDialog : BaseBottomSheet<DetailsViewModel, DialogPizzaDetailsBindin
     }
 
     private fun setPrice(price: Double) {
-        viewBinding.txtPrice.text = price.toString()
+        val formattedPrice = price.beautifyDouble()
+        viewBinding.txtPrice.text = requireContext().getString(
+            R.string.price_template,
+            formattedPrice
+        )
     }
 }

@@ -2,9 +2,11 @@ package com.tamimattafi.pizza.android.presentation.fragments.orders.cart
 
 import android.os.Bundle
 import android.view.View
+import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentCartBinding
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import com.tamimattafi.pizza.domain.model.order.Order
 import javax.inject.Inject
@@ -32,8 +34,12 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
     private fun setUpObservers() = with(viewModel) {
         ordersListObservable.observe { ordersTotal ->
             recyclerAdapter.updateData(ordersTotal.orders)
-            //TODO: use price format and rouble sign
-            viewBinding.txtPrice.text = ordersTotal.totalPrice.toString()
+
+            val formattedPrice = ordersTotal.totalPrice.beautifyDouble()
+            viewBinding.txtPrice.text = requireContext().getString(
+                R.string.price_template,
+                formattedPrice
+            )
         }
 
         clearCartObservable.observe {
