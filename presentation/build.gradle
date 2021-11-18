@@ -45,6 +45,9 @@ dependencies {
     //Material
     implementation 'com.google.android.material:material:1.4.0'
 
+    //Zoom image view
+    implementation 'com.github.MikeOrtiz:TouchImageView:3.1.1'
+
     //Mvvm
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"

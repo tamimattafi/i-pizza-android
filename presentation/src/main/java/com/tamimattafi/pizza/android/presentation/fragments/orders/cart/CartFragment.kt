@@ -36,7 +36,7 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
             viewBinding.txtPrice.text = ordersTotal.totalPrice.toString()
         }
 
-        dismissObservable.observe {
+        clearCartObservable.observe {
             navigator.toDirection(Destination.Direction.Back)
         }
 

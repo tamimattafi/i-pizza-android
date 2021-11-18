@@ -8,4 +8,6 @@
     <string name="checkout_label">Checkout</string>
     <string name="order_success_label">Order was successfully sent!</string>
     <string name="order_success_description">We will call you soon to confirm order details</string>
+    <string name="order_success_button_label">Back to Menu</string>
+    <string name="gallery_item_count_template">%1$d/%2$d</string>
 </resources>

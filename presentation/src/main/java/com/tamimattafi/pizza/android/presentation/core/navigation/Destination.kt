@@ -24,7 +24,7 @@ sealed interface Destination {
         object Menu : Fragment
 
         @Parcelize
-        class PizzaGallery(
+        class Gallery(
             val pizzaId: Int
         ) : Fragment
 

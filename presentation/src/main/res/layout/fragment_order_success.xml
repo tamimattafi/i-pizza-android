@@ -60,7 +60,7 @@
             android:fontFamily="@font/lato_bold"
             android:gravity="center"
             android:padding="@dimen/margin_size_large"
-            android:text="@string/place_order_label"
+            android:text="@string/order_success_button_label"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/text_size_small" />
 

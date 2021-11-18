@@ -6,7 +6,7 @@ import androidx.core.widget.addTextChangedListener
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentSearchBinding
-import com.tamimattafi.pizza.android.presentation.fragments.pizza.global.PizzaRecyclerAdapter
+import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 

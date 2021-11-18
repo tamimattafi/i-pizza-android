@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.pizza.global
+package com.tamimattafi.pizza.android.presentation.fragments.global.pizza
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

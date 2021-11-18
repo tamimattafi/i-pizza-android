@@ -23,8 +23,8 @@ class CartViewModel @Inject constructor(
     private val errorProcessor = PublishProcessor.create<Unit>()
     val errorObservable: Flowable<Unit> get() = errorProcessor
 
-    private val dismissProcessor = PublishProcessor.create<Unit>()
-    val dismissObservable: Flowable<Unit> get() = dismissProcessor
+    private val clearCartProcessor = PublishProcessor.create<Unit>()
+    val clearCartObservable: Flowable<Unit> get() = clearCartProcessor
 
     private val orderSubmitProcessor = PublishProcessor.create<Unit>()
     val orderSubmitObservable: Flowable<Unit> = orderSubmitProcessor
@@ -42,7 +42,7 @@ class CartViewModel @Inject constructor(
     }
 
     fun clearCart() {
-        ordersClear().subscribeToProcessor(dismissProcessor)
+        ordersClear().subscribeToProcessor(clearCartProcessor)
     }
 
     fun placeOrder() {
