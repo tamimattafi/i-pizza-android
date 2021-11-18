@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
-import com.tamimattafi.pizza.android.presentation.utils.showSnackError
+import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -105,7 +105,7 @@ abstract class BaseBottomSheet<VM : BaseViewModel, VB: ViewBinding>(
     }
 
     protected open fun handleError(error: Throwable) {
-        this.showSnackError(error)
+        this.showToastError(error)
     }
 
     private companion object {

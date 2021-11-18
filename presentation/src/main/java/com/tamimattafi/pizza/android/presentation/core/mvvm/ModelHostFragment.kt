@@ -4,7 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.tamimattafi.pizza.android.presentation.utils.showSnackError
+import com.tamimattafi.pizza.android.presentation.utils.observe
+import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
@@ -24,16 +25,10 @@ abstract class ModelHostFragment<VM : BaseViewModel, VB: ViewBinding>(
         onError: (Throwable) -> Unit = ::handleError,
         onNext: (T) -> Unit = {}
     ) {
-        val observer = LifecycleObserver(
-            observable = this,
-            onNext,
-            onError
-        )
-
-        lifecycle.addObserver(observer)
+        observe(this, onError, onNext)
     }
 
     protected open fun handleError(error: Throwable) {
-        this.showSnackError(error)
+        this.showToastError(error)
     }
 }
