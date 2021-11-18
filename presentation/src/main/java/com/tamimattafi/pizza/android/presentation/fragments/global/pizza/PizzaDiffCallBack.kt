@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.fragments.pizza.global
+package com.tamimattafi.pizza.android.presentation.fragments.global.pizza
 
 import com.tamimattafi.pizza.android.presentation.core.recycler.SimpleDiffUtilCallback
 import com.tamimattafi.pizza.domain.model.Pizza

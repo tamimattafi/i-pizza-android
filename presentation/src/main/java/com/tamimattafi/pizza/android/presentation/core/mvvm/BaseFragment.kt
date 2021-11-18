@@ -40,8 +40,10 @@ abstract class BaseFragment<VB: ViewBinding>(
         }
     }
 
-    fun <T : Destination.Fragment> getDestination(): T?
-            = requireArguments().getParcelable(DESTINATION_KEY) as? T
+    fun <T : Destination.Fragment> getDestination(): T {
+        val destination = requireArguments().getParcelable<T>(DESTINATION_KEY)
+        return requireNotNull(destination)
+    }
 
     private companion object {
         const val DESTINATION_KEY = "destination"

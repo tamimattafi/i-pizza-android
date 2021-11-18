@@ -5,6 +5,7 @@ import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.*
 import com.tamimattafi.pizza.android.presentation.fragments.orders.cart.CartFragment
 import com.tamimattafi.pizza.android.presentation.fragments.orders.success.OrderSuccessFragment
+import com.tamimattafi.pizza.android.presentation.fragments.pizza.gallery.GalleryFragment
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.menu.MenuFragment
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchFragment
 
@@ -16,7 +17,7 @@ object FragmentProvider {
             Search -> SearchFragment()
             Cart -> CartFragment()
             OrderSuccess -> OrderSuccessFragment()
-            is PizzaGallery -> TODO()
+            is Gallery -> GalleryFragment()
         }.apply {
             storeDestination(destination)
         }

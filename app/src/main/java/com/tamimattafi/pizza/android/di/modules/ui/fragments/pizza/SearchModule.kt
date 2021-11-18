@@ -3,7 +3,7 @@ package com.tamimattafi.pizza.android.di.modules.ui.fragments.pizza
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.tamimattafi.pizza.android.di.modules.ui.model.ViewModelKey
-import com.tamimattafi.pizza.android.presentation.fragments.pizza.global.PizzaRecyclerAdapter
+import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchFragment
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchViewModel
 import dagger.Binds
