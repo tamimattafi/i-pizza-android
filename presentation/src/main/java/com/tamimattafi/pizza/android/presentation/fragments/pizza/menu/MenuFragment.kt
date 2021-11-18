@@ -9,9 +9,7 @@ import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
-import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
-import com.tamimattafi.pizza.android.presentation.utils.setClickListener
-import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
+import com.tamimattafi.pizza.android.presentation.utils.*
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
@@ -56,6 +54,11 @@ class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
                 R.string.price_template,
                 formattedPrice
             )
+        }
+
+        connectionObservable.observe { isConnected ->
+            if (isConnected) viewModel.updateMenuData()
+            else showToast(R.string.internet_error_message)
         }
     }
 

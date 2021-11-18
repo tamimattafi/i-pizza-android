@@ -11,4 +11,5 @@
     <string name="order_success_button_label">Back to Menu</string>
     <string name="gallery_item_count_template">%1$d/%2$d</string>
     <string name="price_template">%1$s₽</string>
+    <string name="internet_error_message">Please check your internet connection</string>
 </resources>
