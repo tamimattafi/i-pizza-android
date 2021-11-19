@@ -1,5 +1,6 @@
 package com.tamimattafi.pizza.android.di.modules.data.source.core.remote
 
+import com.tamimattafi.pizza.android.BuildConfig
 import com.tamimattafi.pizza.android.data.remote.client.order.IOrderClient
 import com.tamimattafi.pizza.android.data.remote.client.pizza.IPizzaClient
 import dagger.Module
@@ -16,7 +17,7 @@ object PrimaryClientModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl("https://springboot-kotlin-demo.herokuapp.com/")
+            .baseUrl(BuildConfig.API_URL)
             .addConverterFactory(JacksonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
