@@ -13,12 +13,13 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0.0"
+        buildConfigField("String", "API_URL", "\"https://springboot-kotlin-demo.herokuapp.com/\"")
     }
 
     buildTypes {
         release {
-            shrinkResources true
-            minifyEnabled true
+            shrinkResources false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

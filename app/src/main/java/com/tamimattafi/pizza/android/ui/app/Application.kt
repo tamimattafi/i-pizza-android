@@ -16,6 +16,8 @@ class Application : DaggerApplication() {
     }
 
     private fun observeUncaughtErrors() {
-        RxJavaPlugins.setErrorHandler(Throwable::printStackTrace)
+        RxJavaPlugins.setErrorHandler { throwable ->
+            throwable.printStackTrace()
+        }
     }
 }
