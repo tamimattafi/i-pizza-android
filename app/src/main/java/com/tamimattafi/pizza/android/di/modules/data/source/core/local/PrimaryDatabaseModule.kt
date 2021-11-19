@@ -29,8 +29,8 @@ object PrimaryDatabaseModule {
     fun provideOrdersDao(database: PrimaryDatabase): IOrdersDao =
         database.ordersDao()
 
-    private fun <T : RoomDatabase> Context.buildDatabase(clazz: Class<T>, name: String): T
-        = Room.databaseBuilder(this, clazz, name)
+    private fun <T : RoomDatabase> Context.buildDatabase(clazz: Class<T>, name: String): T =
+        Room.databaseBuilder(this, clazz, name)
             .fallbackToDestructiveMigration()
             .build()
 }

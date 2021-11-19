@@ -11,7 +11,7 @@ import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-abstract class ModelHostFragment<VM : BaseViewModel, VB: ViewBinding, D: Destination.Fragment>(
+abstract class ModelHostFragment<VM : BaseViewModel, VB : ViewBinding, D : Destination.Fragment>(
     viewModelClass: Class<VM>,
     bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : BaseFragment<VB, D>(bindingBlock) {

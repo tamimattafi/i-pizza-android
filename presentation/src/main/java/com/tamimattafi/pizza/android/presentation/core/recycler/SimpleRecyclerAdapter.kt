@@ -3,7 +3,7 @@ package com.tamimattafi.pizza.android.presentation.core.recycler
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class SimpleRecyclerAdapter<T, VH: RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
+abstract class SimpleRecyclerAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     private var data = emptyList<T>()
 

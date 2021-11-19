@@ -30,8 +30,8 @@ class PizzaRecyclerAdapter @Inject constructor(
         }
     }
 
-    override fun createDiffCallback(oldData: List<Pizza>, newData: List<Pizza>)
-        = PizzaDiffCallBack(oldData, newData)
+    override fun createDiffCallback(oldData: List<Pizza>, newData: List<Pizza>) =
+        PizzaDiffCallBack(oldData, newData)
 
     interface IEventListener {
         fun onItemClick(pizza: Pizza)

@@ -1,8 +1,8 @@
 include(
-    ':app',
-    ':presentation',
-    ':data',
-    ':domain'
+        ':app',
+        ':presentation',
+        ':data',
+        ':domain'
 )
 include ':data:local'
 include ':data:remote'

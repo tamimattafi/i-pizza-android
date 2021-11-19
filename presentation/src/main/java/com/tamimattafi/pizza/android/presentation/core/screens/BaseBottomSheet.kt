@@ -24,7 +24,7 @@ import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-abstract class BaseBottomSheet<VB : ViewBinding, D: Destination.Dialog>(
+abstract class BaseBottomSheet<VB : ViewBinding, D : Destination.Dialog>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : BottomSheetDialogFragment(), HasAndroidInjector {
 

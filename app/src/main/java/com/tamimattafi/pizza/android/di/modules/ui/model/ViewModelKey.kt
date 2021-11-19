@@ -2,7 +2,6 @@ package com.tamimattafi.pizza.android.di.modules.ui.model
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey
-import java.lang.annotation.Documented
 import kotlin.reflect.KClass
 
 @MustBeDocumented

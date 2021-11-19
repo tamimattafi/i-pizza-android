@@ -4,8 +4,8 @@ import android.view.ViewGroup
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.recycler.SimpleRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.inflate
-import com.tamimattafi.pizza.domain.model.order.Order
 import com.tamimattafi.pizza.domain.model.Pizza
+import com.tamimattafi.pizza.domain.model.order.Order
 import javax.inject.Inject
 
 class CartRecyclerAdapter @Inject constructor(
@@ -45,8 +45,8 @@ class CartRecyclerAdapter @Inject constructor(
             setPrice(pizza.price)
         }
 
-    override fun createDiffCallback(oldData: List<Order>, newData: List<Order>)
-        = CartDiffCallBack(oldData, newData)
+    override fun createDiffCallback(oldData: List<Order>, newData: List<Order>) =
+        CartDiffCallBack(oldData, newData)
 
     interface IEventListener {
         fun onItemClick(order: Order)

@@ -15,10 +15,11 @@ class ConnectionManager @Inject constructor(
     private val context: Context
 ) : IConnectionManager {
 
-    override val isConnected: Boolean get() {
-        val activeNetworkInfo = connectivityManager.activeNetworkInfo
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected
-    }
+    override val isConnected: Boolean
+        get() {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+        }
 
     private val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

@@ -1,18 +1,13 @@
 package com.tamimattafi.pizza.android.ui.activities
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.tamimattafi.pizza.android.R
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
-import com.tamimattafi.pizza.android.presentation.utils.observe
 import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import com.tamimattafi.pizza.android.ui.activities.navigation.DialogProvider
 import com.tamimattafi.pizza.android.ui.activities.navigation.FragmentProvider
 import dagger.android.support.DaggerAppCompatActivity
-import io.reactivex.rxjava3.core.Flowable
-import io.reactivex.rxjava3.plugins.RxJavaPlugins
-import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity(), INavigator {
 
@@ -28,7 +23,7 @@ class MainActivity : DaggerAppCompatActivity(), INavigator {
     }
 
     override fun toDirection(destination: Destination.Direction) =
-        when(destination) {
+        when (destination) {
             Destination.Direction.Back -> onBackPressed()
         }
 

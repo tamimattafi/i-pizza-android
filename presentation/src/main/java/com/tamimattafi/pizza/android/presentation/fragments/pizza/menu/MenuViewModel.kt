@@ -7,8 +7,6 @@ import com.tamimattafi.pizza.domain.usecase.pizza.PizzaGetAll
 import com.tamimattafi.pizza.domain.utils.IConnectionManager
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
-import io.reactivex.rxjava3.processors.PublishProcessor
-import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 class MenuViewModel @Inject constructor(
@@ -27,6 +25,7 @@ class MenuViewModel @Inject constructor(
     val connectionObservable: Flowable<Boolean> get() = connectionProcessor
 
     init {
+        updateMenuData()
         ordersGetTotal().subscribe(totalPriceProcessor)
         connectionManager.listenToConnectionChanges().subscribe(connectionProcessor)
     }

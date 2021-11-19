@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:background="@drawable/background_primary"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/background_primary">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/fldSearch"
-        android:padding="@dimen/margin_size_medium"
-        android:hint="@string/pizza_search_hint"
-        android:background="@drawable/background_field"
-        android:textColor="@color/colorTextPrimary"
-        android:textColorHint="@color/colorTextHint"
         android:layout_width="0dp"
-        android:singleLine="true"
-        android:maxLines="1"
-        android:imeOptions="actionDone"
-        android:imeActionLabel="Search"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_size_extra_small"
         android:layout_margin="@dimen/margin_size_medium"
+        android:background="@drawable/background_field"
         android:drawableEnd="@drawable/ic_search"
         android:fontFamily="@font/lato_regular"
+        android:hint="@string/pizza_search_hint"
+        android:imeActionLabel="Search"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:padding="@dimen/margin_size_medium"
+        android:singleLine="true"
+        android:textColor="@color/colorTextPrimary"
+        android:textColorHint="@color/colorTextHint"
+        android:textSize="@dimen/text_size_extra_small"
         app:drawableTint="@color/colorTextHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +30,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_marginTop="@dimen/margin_size_medium"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_size_medium"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

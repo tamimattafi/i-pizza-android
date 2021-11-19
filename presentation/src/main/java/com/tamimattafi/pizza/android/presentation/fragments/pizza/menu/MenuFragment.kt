@@ -9,7 +9,10 @@ import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.Menu
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
-import com.tamimattafi.pizza.android.presentation.utils.*
+import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
+import com.tamimattafi.pizza.android.presentation.utils.setClickListener
+import com.tamimattafi.pizza.android.presentation.utils.showToast
+import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 

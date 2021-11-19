@@ -5,7 +5,6 @@ import com.tamimattafi.pizza.domain.model.Pizza
 import com.tamimattafi.pizza.domain.usecase.pizza.PizzaSearch
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.BehaviorProcessor
-import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 class SearchViewModel @Inject constructor(

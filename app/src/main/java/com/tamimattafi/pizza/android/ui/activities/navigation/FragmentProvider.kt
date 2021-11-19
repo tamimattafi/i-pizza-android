@@ -11,14 +11,13 @@ import com.tamimattafi.pizza.android.presentation.fragments.pizza.search.SearchF
 
 object FragmentProvider {
 
-    fun provide(destination: Destination.Fragment): Fragment
-        = when (destination) {
-            Menu -> MenuFragment()
-            Search -> SearchFragment()
-            Cart -> CartFragment()
-            OrderSuccess -> OrderSuccessFragment()
-            is Gallery -> GalleryFragment()
-        }.apply {
-            forceStoreDestination(destination)
-        }
+    fun provide(destination: Destination.Fragment): Fragment = when (destination) {
+        Menu -> MenuFragment()
+        Search -> SearchFragment()
+        Cart -> CartFragment()
+        OrderSuccess -> OrderSuccessFragment()
+        is Gallery -> GalleryFragment()
+    }.apply {
+        forceStoreDestination(destination)
+    }
 }

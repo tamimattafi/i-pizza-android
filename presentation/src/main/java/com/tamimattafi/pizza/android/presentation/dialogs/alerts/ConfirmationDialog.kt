@@ -10,7 +10,7 @@ import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 class ConfirmationDialog : BaseBottomSheet<
         DialogConfirmationBinding,
         Destination.Dialog.Confirmation
->(DialogConfirmationBinding::inflate) {
+        >(DialogConfirmationBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

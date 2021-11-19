@@ -11,7 +11,7 @@ import dagger.android.HasAndroidInjector
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-abstract class ModelHostBottomSheet<VM : BaseViewModel, VB : ViewBinding, D: Destination.Dialog>(
+abstract class ModelHostBottomSheet<VM : BaseViewModel, VB : ViewBinding, D : Destination.Dialog>(
     viewModelClass: Class<VM>,
     bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : BaseBottomSheet<VB, D>(bindingBlock), HasAndroidInjector {

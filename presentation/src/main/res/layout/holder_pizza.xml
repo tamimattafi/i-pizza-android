@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/margin_size_medium"
     android:layout_marginVertical="@dimen/margin_size_small"
     app:cardCornerRadius="@dimen/radius_size_large"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardElevation="@dimen/elevation_size_large"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:cardElevation="@dimen/elevation_size_large">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imgPizza"
-            app:shapeAppearanceOverlay="@style/CardView.Round.Shape"
-            tools:src="@drawable/background_primary"
-            android:scaleType="centerCrop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintDimensionRatio="2.2:1"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/pizza_photo_description" />
 
         <TextView
             android:id="@+id/txtName"
@@ -34,20 +20,20 @@
             android:fontFamily="@font/lato_bold"
             android:paddingHorizontal="@dimen/margin_size_medium"
             android:paddingTop="@dimen/margin_size_small"
-            tools:text="Margarita"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgPizza" />
+            app:layout_constraintTop_toBottomOf="@id/imgPizza"
+            tools:text="Margarita" />
 
         <TextView
             android:id="@+id/txtDescription"
-            android:maxLines="1"
-            android:ellipsize="end"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:fontFamily="@font/lato_regular"
+            android:maxLines="1"
             android:paddingHorizontal="@dimen/margin_size_medium"
             android:paddingVertical="@dimen/margin_size_small"
             android:textColor="?attr/colorPrimary"
@@ -65,11 +51,24 @@
             android:fontFamily="@font/lato_bold"
             android:paddingHorizontal="@dimen/margin_size_medium"
             android:paddingVertical="@dimen/margin_size_small"
-            tools:text="779$"
             android:textColor="?attr/colorPrimary"
             android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtName"/>
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            tools:text="779$" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPizza"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/pizza_photo_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="2.2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CardView.Round.Shape"
+            tools:src="@drawable/background_primary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

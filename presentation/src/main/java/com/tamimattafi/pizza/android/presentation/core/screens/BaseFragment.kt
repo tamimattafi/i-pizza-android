@@ -11,7 +11,7 @@ import com.tamimattafi.pizza.android.presentation.utils.provideArguments
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment<VB : ViewBinding, D: Destination.Fragment>(
+abstract class BaseFragment<VB : ViewBinding, D : Destination.Fragment>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : DaggerFragment() {
 

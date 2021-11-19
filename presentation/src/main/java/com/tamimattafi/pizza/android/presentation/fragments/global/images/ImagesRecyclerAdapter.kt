@@ -6,8 +6,8 @@ import com.tamimattafi.pizza.android.presentation.core.recycler.SimpleRecyclerAd
 import com.tamimattafi.pizza.android.presentation.utils.inflate
 import javax.inject.Inject
 
-class ImagesRecyclerAdapter @Inject constructor()
-    : SimpleRecyclerAdapter<String, ImageViewHolder>() {
+class ImagesRecyclerAdapter @Inject constructor() :
+    SimpleRecyclerAdapter<String, ImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = parent.inflate(R.layout.holder_image)
@@ -18,6 +18,6 @@ class ImagesRecyclerAdapter @Inject constructor()
         holder.setImageUrl(item)
     }
 
-    override fun createDiffCallback(oldData: List<String>, newData: List<String>)
-        = ImagesDiffCallBack(oldData, newData)
+    override fun createDiffCallback(oldData: List<String>, newData: List<String>) =
+        ImagesDiffCallBack(oldData, newData)
 }
