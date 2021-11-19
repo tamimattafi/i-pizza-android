@@ -35,42 +35,39 @@ android {
 
 dependencies {
     //Android core
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation "androidx.core:core-ktx:$android_core_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
 
     //Material
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation "com.google.android.material:material:$material_version"
 
     //DI with Dagger2 for Android
-    implementation 'com.google.dagger:dagger-android:2.38.1'
-    implementation 'com.google.dagger:dagger-android-support:2.38.1'
-    kapt 'com.google.dagger:dagger-android-processor:2.38.1'
-    kapt 'com.google.dagger:dagger-compiler:2.38.1'
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     //SQLite (room)
-    def room_version = "2.4.0-beta01"
-    kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
+
+    //Http client
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+
+    //JSON Serialization
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    implementation "com.squareup.retrofit2:converter-jackson:$jackson_retrofit_version"
+
+    //RxJava for JVM and Android
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_android_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+
+    //Presentation
+    implementation project(":presentation")
 
     //Logic
     implementation project(":data")
     implementation project(":data:local")
     implementation project(":data:remote")
     implementation project(":domain")
-
-    //Http client
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
-
-    //JSON Serialization
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.4"
-    implementation 'com.squareup.retrofit2:converter-jackson:2.4.0'
-
-    //RxJava for JVM and Android
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxjava:3.1.2'
-
-    //Presentation
-    implementation project(":presentation")
 }

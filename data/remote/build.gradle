@@ -10,13 +10,13 @@ java {
 
 dependencies {
     //Http client
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     //JSON Serialization
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.4"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
 
     //RxJava for JVM, platform-independent
-    implementation "io.reactivex.rxjava3:rxjava:3.1.2"
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
 
     //Logic
     implementation project(":domain")
