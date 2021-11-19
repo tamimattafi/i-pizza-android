@@ -2,7 +2,7 @@ package com.tamimattafi.pizza.android.presentation.fragments.orders.success
 
 import android.os.Bundle
 import android.view.View
-import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseFragment
+import com.tamimattafi.pizza.android.presentation.core.fragments.BaseFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentOrderSuccessBinding
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener

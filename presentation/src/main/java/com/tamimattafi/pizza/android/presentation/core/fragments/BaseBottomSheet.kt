@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.core.mvvm
+package com.tamimattafi.pizza.android.presentation.core.fragments
 
 import android.app.Dialog
 import android.content.Context
@@ -11,31 +11,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.CallSuper
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
-import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
-import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-abstract class BaseBottomSheet<VM : BaseViewModel, VB: ViewBinding>(
-    viewModelClass: Class<VM>,
+abstract class BaseBottomSheet<VB : ViewBinding>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
-)  : BottomSheetDialogFragment(), HasAndroidInjector {
+) : BottomSheetDialogFragment(), HasAndroidInjector {
 
     @Inject
     lateinit var androidInjector: DispatchingAndroidInjector<Any?>
-
-    @Inject
-    lateinit var viewModelProvider: ViewModelProvider
 
     @Inject
     lateinit var navigator: INavigator
@@ -43,10 +36,6 @@ abstract class BaseBottomSheet<VM : BaseViewModel, VB: ViewBinding>(
     protected open val isFullScreen: Boolean = true
 
     protected lateinit var viewBinding: VB
-
-    protected val viewModel by lazy {
-        viewModelProvider[viewModelClass]
-    }
 
     @CallSuper
     override fun onAttach(context: Context) {
@@ -89,23 +78,6 @@ abstract class BaseBottomSheet<VM : BaseViewModel, VB: ViewBinding>(
         if (isFullScreen) {
             bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
-    }
-
-    protected fun <T : Any> Flowable<T>.observe(
-        onError: (Throwable) -> Unit = ::handleError,
-        onNext: (T) -> Unit
-    ) {
-        val observer = LifecycleObserver(
-            observable = this,
-            onNext,
-            onError
-        )
-
-        lifecycle.addObserver(observer)
-    }
-
-    protected open fun handleError(error: Throwable) {
-        this.showToastError(error)
     }
 
     private companion object {

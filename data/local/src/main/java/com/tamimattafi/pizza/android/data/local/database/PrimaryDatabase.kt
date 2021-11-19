@@ -8,8 +8,8 @@ import com.tamimattafi.pizza.android.data.local.database.PrimaryDatabase.Config.
 import com.tamimattafi.pizza.android.data.local.database.converters.DatabaseConverters
 import com.tamimattafi.pizza.android.data.local.database.dao.IOrdersDao
 import com.tamimattafi.pizza.android.data.local.database.dao.IPizzaDao
-import com.tamimattafi.pizza.android.data.local.entities.order.OrderEntity
 import com.tamimattafi.pizza.android.data.local.entities.PizzaEntity
+import com.tamimattafi.pizza.android.data.local.entities.order.OrderEntity
 
 @Database(
     entities = [PizzaEntity::class, OrderEntity::class],

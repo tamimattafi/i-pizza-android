@@ -10,7 +10,7 @@ class OrdersRemoteDataSource(
     private val client: IOrderClient
 ) : IOrdersRemoteDataSource {
 
-    override fun submit(orders: List<Order>): Completable
-        = orders.map(OrderBody.Companion::fromOrder)
+    override fun submit(orders: List<Order>): Completable =
+        orders.map(OrderBody.Companion::fromOrder)
             .let(client::placeOrder)
 }

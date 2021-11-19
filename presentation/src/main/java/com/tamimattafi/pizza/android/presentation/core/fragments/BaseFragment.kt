@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.core.mvvm
+package com.tamimattafi.pizza.android.presentation.core.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment<VB: ViewBinding>(
+abstract class BaseFragment<VB : ViewBinding>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : DaggerFragment() {
 

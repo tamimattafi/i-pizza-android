@@ -4,16 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.tamimattafi.pizza.android.presentation.core.fragments.BaseFragment
-import com.tamimattafi.pizza.android.presentation.utils.observe
+import com.tamimattafi.pizza.android.presentation.core.fragments.BaseBottomSheet
 import com.tamimattafi.pizza.android.presentation.utils.showToastError
+import dagger.android.HasAndroidInjector
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-abstract class ModelHostFragment<VM : BaseViewModel, VB: ViewBinding>(
+abstract class ModelHostBottomSheet<VM : BaseViewModel, VB : ViewBinding>(
     viewModelClass: Class<VM>,
     bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
-) : BaseFragment<VB>(bindingBlock) {
+) : BaseBottomSheet<VB>(bindingBlock), HasAndroidInjector {
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider
@@ -24,9 +24,15 @@ abstract class ModelHostFragment<VM : BaseViewModel, VB: ViewBinding>(
 
     protected fun <T : Any> Flowable<T>.observe(
         onError: (Throwable) -> Unit = ::handleError,
-        onNext: (T) -> Unit = {}
+        onNext: (T) -> Unit
     ) {
-        observe(this, onError, onNext)
+        val observer = LifecycleObserver(
+            observable = this,
+            onNext,
+            onError
+        )
+
+        lifecycle.addObserver(observer)
     }
 
     protected open fun handleError(error: Throwable) {

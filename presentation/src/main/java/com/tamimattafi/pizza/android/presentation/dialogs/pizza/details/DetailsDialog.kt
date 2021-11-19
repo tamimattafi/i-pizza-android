@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
 import com.tamimattafi.pizza.android.presentation.R
-import com.tamimattafi.pizza.android.presentation.core.mvvm.BaseBottomSheet
+import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostBottomSheet
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.databinding.DialogPizzaDetailsBinding
 import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
-class DetailsDialog : BaseBottomSheet<DetailsViewModel, DialogPizzaDetailsBinding>(
+class DetailsDialog : ModelHostBottomSheet<DetailsViewModel, DialogPizzaDetailsBinding>(
     DetailsViewModel::class.java,
     DialogPizzaDetailsBinding::inflate
 ) {

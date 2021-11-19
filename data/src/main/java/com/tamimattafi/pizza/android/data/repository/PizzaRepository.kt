@@ -29,7 +29,7 @@ class PizzaRepository(
             }
 
     override fun search(query: String?): Flowable<List<Pizza>> {
-        val dataFlow =  if (query.isNullOrBlank()) local.getAll()
+        val dataFlow = if (query.isNullOrBlank()) local.getAll()
         else local.search(query)
 
         return dataFlow
