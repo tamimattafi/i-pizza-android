@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pizza_photo_description">Pizza photo</string>
+    <string name="search_button_description">Search button</string>
+    <string name="swipe_bar_description">Swipe to close</string>
+    <string name="i_pizza_logo">iPizza logo</string>
+    <string name="image_description">Gallery image</string>
+</resources>

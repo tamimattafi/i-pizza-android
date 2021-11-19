@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_extra_large">36sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_medium">24sp</dimen>
+    <dimen name="text_size_small">18sp</dimen>
+    <dimen name="text_size_extra_small">14sp</dimen>
+
+    <dimen name="margin_size_large">20dp</dimen>
+    <dimen name="margin_size_medium">16dp</dimen>
+    <dimen name="margin_size_small">8dp</dimen>
+
+    <dimen name="radius_size_large">18dp</dimen>
+    <dimen name="radius_size_small">8dp</dimen>
+
+    <dimen name="elevation_size_extra_large">16dp</dimen>
+    <dimen name="elevation_size_large">8dp</dimen>
+    <dimen name="image_height_medium">136dp</dimen>
+    <dimen name="button_size_small">38dp</dimen>
+    <dimen name="stroke_size_medium">4dp</dimen>
+</resources>

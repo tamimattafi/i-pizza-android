@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.tamimattafi.pizza.android"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    //Android core
+    implementation "androidx.core:core-ktx:$android_core_version"
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+
+    //Material
+    implementation "com.google.android.material:material:$material_version"
+
+    //DI with Dagger2 for Android
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //SQLite (room)
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    //Http client
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
+
+    //JSON Serialization
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+    implementation "com.squareup.retrofit2:converter-jackson:$jackson_retrofit_version"
+
+    //RxJava for JVM and Android
+    implementation "io.reactivex.rxjava3:rxandroid:$rx_android_version"
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+
+    //Presentation
+    implementation project(":presentation")
+
+    //Logic
+    implementation project(":data")
+    implementation project(":data:local")
+    implementation project(":data:remote")
+    implementation project(":domain")
+}

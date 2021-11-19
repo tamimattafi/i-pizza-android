@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.Light.Sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_primary">
+
+    <ImageView
+        android:id="@+id/imgSwipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_size_medium"
+        android:contentDescription="@string/swipe_bar_description"
+        android:src="@drawable/ic_swipe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:padding="@dimen/margin_size_medium"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/text_size_extra_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgPizza"
+        tools:text="Margarita" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:paddingHorizontal="@dimen/margin_size_medium"
+        android:paddingVertical="@dimen/margin_size_small"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/text_size_extra_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName"
+        tools:text="Сheese,tomatoes,fresh onion leaves..." />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rootActionButton"
+        style="@style/CardView.RoundTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/radius_size_large"
+        android:clipToPadding="false"
+        app:cardElevation="@dimen/elevation_size_extra_large"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+        app:shapeAppearanceOverlay="@style/CardView.RoundTop.Shape">
+
+        <RelativeLayout
+            android:id="@+id/btnAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_size_medium"
+            android:background="@drawable/background_button_accent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/txtPrice"
+                android:fontFamily="@font/lato_bold"
+                android:padding="@dimen/margin_size_large"
+                android:text="@string/add_to_card_label"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/text_size_small" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/lato_bold"
+                android:padding="@dimen/margin_size_large"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="@dimen/text_size_small"
+                tools:text="799$" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgPizza"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_size_medium"
+        android:contentDescription="@string/pizza_photo_description"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1.5:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgSwipe"
+        app:shapeAppearanceOverlay="@style/CardView.Round.Shape"
+        tools:src="@drawable/background_primary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

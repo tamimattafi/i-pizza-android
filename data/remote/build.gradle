@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    //Http client
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+
+    //JSON Serialization
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_version"
+
+    //RxJava for JVM, platform-independent
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+
+    //Logic
+    implementation project(":domain")
+    implementation project(":data")
+}

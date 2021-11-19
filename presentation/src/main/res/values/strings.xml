@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pizza_menu_title">Menu</string>
+    <string name="add_to_card_label">Add to cart</string>
+    <string name="pizza_search_hint">Write something</string>
+    <string name="orders_title">Cart</string>
+    <string name="place_order_label">Place order</string>
+    <string name="checkout_label">Checkout</string>
+    <string name="order_success_label">Order was successfully sent!</string>
+    <string name="order_success_description">We will call you soon to confirm order details</string>
+    <string name="order_success_button_label">Back to Menu</string>
+    <string name="gallery_item_count_template">%1$d/%2$d</string>
+    <string name="price_template">%1$s₽</string>
+    <string name="internet_error_message">Please check your internet connection</string>
+    <string name="clear_cart_warning_label">Are you sure you want to clear cart?</string>
+    <string name="common_yes">Yes</string>
+    <string name="common_close">Close</string>
+    <string name="remove_order_warning_label">Are you sure that you want to remove this item from your cart?</string>
+</resources>

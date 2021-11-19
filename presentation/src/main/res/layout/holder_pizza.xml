@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_size_medium"
+    android:layout_marginVertical="@dimen/margin_size_small"
+    app:cardCornerRadius="@dimen/radius_size_large"
+    app:cardElevation="@dimen/elevation_size_large">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:paddingHorizontal="@dimen/margin_size_medium"
+            android:paddingTop="@dimen/margin_size_small"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgPizza"
+            tools:text="Margarita" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/lato_regular"
+            android:maxLines="1"
+            android:paddingHorizontal="@dimen/margin_size_medium"
+            android:paddingVertical="@dimen/margin_size_small"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_extra_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtPrice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            tools:text="Сheese,tomatoes,fresh onion leaves..." />
+
+        <TextView
+            android:id="@+id/txtPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:paddingHorizontal="@dimen/margin_size_medium"
+            android:paddingVertical="@dimen/margin_size_small"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtName"
+            tools:text="779$" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPizza"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/pizza_photo_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="2.2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/CardView.Round.Shape"
+            tools:src="@drawable/background_primary" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

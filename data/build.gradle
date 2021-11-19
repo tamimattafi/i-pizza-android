@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    //RxJava for JVM, platform-independent
+    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
+
+    //Business logic
+    implementation project(':domain')
+}
