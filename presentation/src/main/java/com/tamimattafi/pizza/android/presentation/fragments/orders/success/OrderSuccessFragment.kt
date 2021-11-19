@@ -2,12 +2,13 @@ package com.tamimattafi.pizza.android.presentation.fragments.orders.success
 
 import android.os.Bundle
 import android.view.View
-import com.tamimattafi.pizza.android.presentation.core.fragments.BaseFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.screens.BaseFragment
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.OrderSuccess
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentOrderSuccessBinding
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 
-class OrderSuccessFragment : BaseFragment<FragmentOrderSuccessBinding>(
+class OrderSuccessFragment : BaseFragment<FragmentOrderSuccessBinding, OrderSuccess>(
     FragmentOrderSuccessBinding::inflate
 ) {
 

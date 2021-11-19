@@ -4,16 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.tamimattafi.pizza.android.presentation.core.fragments.BaseBottomSheet
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.screens.BaseBottomSheet
 import com.tamimattafi.pizza.android.presentation.utils.showToastError
 import dagger.android.HasAndroidInjector
 import io.reactivex.rxjava3.core.Flowable
 import javax.inject.Inject
 
-abstract class ModelHostBottomSheet<VM : BaseViewModel, VB : ViewBinding>(
+abstract class ModelHostBottomSheet<VM : BaseViewModel, VB : ViewBinding, D: Destination.Dialog>(
     viewModelClass: Class<VM>,
     bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
-) : BaseBottomSheet<VB>(bindingBlock), HasAndroidInjector {
+) : BaseBottomSheet<VB, D>(bindingBlock), HasAndroidInjector {
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider

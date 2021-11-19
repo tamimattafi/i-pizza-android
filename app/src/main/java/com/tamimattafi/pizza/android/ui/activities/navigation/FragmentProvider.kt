@@ -19,6 +19,6 @@ object FragmentProvider {
             OrderSuccess -> OrderSuccessFragment()
             is Gallery -> GalleryFragment()
         }.apply {
-            storeDestination(destination)
+            forceStoreDestination(destination)
         }
 }

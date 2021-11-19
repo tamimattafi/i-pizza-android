@@ -2,10 +2,10 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.gallery
 
 import android.os.Bundle
 import android.view.View
-import androidx.viewpager2.widget.ViewPager2
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.Gallery
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentGalleryBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.images.ImagesRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.addPageChangeListener
@@ -13,7 +13,7 @@ import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
 import javax.inject.Inject
 
-class GalleryFragment : ModelHostFragment<GalleryViewModel, FragmentGalleryBinding>(
+class GalleryFragment : ModelHostFragment<GalleryViewModel, FragmentGalleryBinding, Gallery>(
     GalleryViewModel::class.java,
     FragmentGalleryBinding::inflate
 ) {

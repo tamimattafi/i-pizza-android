@@ -3,17 +3,17 @@ package com.tamimattafi.pizza.android.presentation.fragments.pizza.menu
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isGone
-import androidx.recyclerview.widget.SimpleItemAnimator
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.Menu
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentMenuBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.*
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
+class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding, Menu>(
     MenuViewModel::class.java,
     FragmentMenuBinding::inflate
 ), PizzaRecyclerAdapter.IEventListener {
@@ -68,7 +68,7 @@ class MenuFragment : ModelHostFragment<MenuViewModel, FragmentMenuBinding>(
     }
 
     override fun onItemClick(pizza: Pizza) {
-        val detailsDestination = Destination.Dialog.PizzaDetails(pizza.id)
+        val detailsDestination = Destination.Dialog.Details(pizza.id)
         navigator.openDialog(detailsDestination)
     }
 }

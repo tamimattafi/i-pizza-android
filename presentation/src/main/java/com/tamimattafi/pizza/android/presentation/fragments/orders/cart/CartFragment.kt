@@ -5,6 +5,7 @@ import android.view.View
 import com.tamimattafi.pizza.android.presentation.R
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.Cart
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentCartBinding
 import com.tamimattafi.pizza.android.presentation.utils.beautifyDouble
 import com.tamimattafi.pizza.android.presentation.utils.setClickListener
@@ -12,7 +13,7 @@ import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.order.Order
 import javax.inject.Inject
 
-class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
+class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding, Cart>(
     CartViewModel::class.java,
     FragmentCartBinding::inflate
 ), CartRecyclerAdapter.IEventListener {
@@ -28,7 +29,17 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
     }
 
     private fun setUpListeners() = with(viewBinding) {
-        btnClear.setClickListener(viewModel::clearCart)
+        btnClear.setClickListener {
+            val destination = Destination.Dialog.Confirmation(
+                getString(R.string.clear_cart_warning_label),
+                getString(R.string.common_yes),
+                getString(R.string.common_close),
+                viewModel::clearCart
+            )
+
+            navigator.openDialog(destination)
+        }
+
         btnPlaceOrder.setClickListener(viewModel::placeOrder)
     }
 
@@ -68,7 +79,7 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
     }
 
     override fun onItemClick(order: Order) {
-        val detailsDestination = Destination.Dialog.PizzaDetails(order.pizza.id)
+        val detailsDestination = Destination.Dialog.Details(order.pizza.id)
         navigator.openDialog(detailsDestination)
     }
 
@@ -77,6 +88,18 @@ class CartFragment : ModelHostFragment<CartViewModel, FragmentCartBinding>(
     }
 
     override fun onRemoveClick(order: Order) {
-        viewModel.removeOrder(order.pizza.id)
+        val newQuantity = order.quantity - Order.Defaults.DEFAULT_QUANTITY_STEP
+        if (newQuantity == Order.Defaults.MIN_QUANTITY) {
+            val destination = Destination.Dialog.Confirmation(
+                getString(R.string.remove_order_warning_label),
+                getString(R.string.common_yes),
+                getString(R.string.common_close),
+                { viewModel.removeOrder(order.pizza.id) }
+            )
+
+            navigator.openDialog(destination)
+        } else {
+            viewModel.removeOrder(order.pizza.id)
+        }
     }
 }

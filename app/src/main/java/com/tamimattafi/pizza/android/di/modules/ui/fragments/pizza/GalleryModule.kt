@@ -3,9 +3,8 @@ package com.tamimattafi.pizza.android.di.modules.ui.fragments.pizza
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import com.tamimattafi.pizza.android.di.modules.ui.model.ViewModelKey
-import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
-import com.tamimattafi.pizza.android.presentation.fragments.pizza.gallery.GalleryViewModel
 import com.tamimattafi.pizza.android.presentation.fragments.pizza.gallery.GalleryFragment
+import com.tamimattafi.pizza.android.presentation.fragments.pizza.gallery.GalleryViewModel
 import com.tamimattafi.pizza.domain.usecase.order.OrderAdd
 import com.tamimattafi.pizza.domain.usecase.pizza.PizzaGet
 import dagger.Binds
@@ -29,9 +28,7 @@ interface GalleryModule {
             pizzaGet: PizzaGet,
             orderAdd: OrderAdd
         ): ViewModel {
-            val destination = pizzaDetailsDialog
-                .getDestination<Destination.Fragment.Gallery>()
-
+            val destination = pizzaDetailsDialog.destination
             return GalleryViewModel(destination.pizzaId, pizzaGet, orderAdd)
         }
     }

@@ -1,4 +1,4 @@
-package com.tamimattafi.pizza.android.presentation.core.fragments
+package com.tamimattafi.pizza.android.presentation.core.screens
 
 import android.app.Dialog
 import android.content.Context
@@ -17,13 +17,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
 import com.tamimattafi.pizza.android.presentation.core.navigation.INavigator
+import com.tamimattafi.pizza.android.presentation.utils.provideArguments
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-abstract class BaseBottomSheet<VB : ViewBinding>(
+abstract class BaseBottomSheet<VB : ViewBinding, D: Destination.Dialog>(
     private val bindingBlock: (LayoutInflater, ViewGroup?, Boolean) -> VB
 ) : BottomSheetDialogFragment(), HasAndroidInjector {
 
@@ -32,6 +33,15 @@ abstract class BaseBottomSheet<VB : ViewBinding>(
 
     @Inject
     lateinit var navigator: INavigator
+
+    var destination: D
+        set(value) {
+            provideArguments().putParcelable(DESTINATION_KEY, value)
+        }
+        get() {
+            val destination = requireArguments().getParcelable<D>(DESTINATION_KEY)
+            return requireNotNull(destination)
+        }
 
     protected open val isFullScreen: Boolean = true
 
@@ -60,15 +70,9 @@ abstract class BaseBottomSheet<VB : ViewBinding>(
 
     final override fun androidInjector(): AndroidInjector<Any?> = androidInjector
 
-    fun storeDestination(destination: Destination.Dialog) {
-        arguments = Bundle().apply {
-            putParcelable(DESTINATION_KEY, destination)
-        }
-    }
-
-    fun <T : Destination.Dialog> getDestination(): T {
-        val destination = requireArguments().getParcelable<T>(DESTINATION_KEY)
-        return requireNotNull(destination)
+    @Suppress("UNCHECKED_CAST")
+    fun forceStoreDestination(destination: Destination.Dialog) {
+        this.destination = destination as D
     }
 
     protected open fun onDialogShow(dialogInterface: DialogInterface) {

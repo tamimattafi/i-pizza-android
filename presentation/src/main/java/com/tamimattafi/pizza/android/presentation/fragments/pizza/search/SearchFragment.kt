@@ -5,13 +5,14 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import com.tamimattafi.pizza.android.presentation.core.mvvm.ModelHostFragment
 import com.tamimattafi.pizza.android.presentation.core.navigation.Destination
+import com.tamimattafi.pizza.android.presentation.core.navigation.Destination.Fragment.Search
 import com.tamimattafi.pizza.android.presentation.databinding.FragmentSearchBinding
 import com.tamimattafi.pizza.android.presentation.fragments.global.pizza.PizzaRecyclerAdapter
 import com.tamimattafi.pizza.android.presentation.utils.supportsChangeAnimations
 import com.tamimattafi.pizza.domain.model.Pizza
 import javax.inject.Inject
 
-class SearchFragment : ModelHostFragment<SearchViewModel, FragmentSearchBinding>(
+class SearchFragment : ModelHostFragment<SearchViewModel, FragmentSearchBinding, Search>(
     SearchViewModel::class.java,
     FragmentSearchBinding::inflate
 ), PizzaRecyclerAdapter.IEventListener {
@@ -44,7 +45,7 @@ class SearchFragment : ModelHostFragment<SearchViewModel, FragmentSearchBinding>
     }
 
     override fun onItemClick(pizza: Pizza) {
-        val detailsDestination = Destination.Dialog.PizzaDetails(pizza.id)
+        val detailsDestination = Destination.Dialog.Details(pizza.id)
         navigator.openDialog(detailsDestination)
     }
 }

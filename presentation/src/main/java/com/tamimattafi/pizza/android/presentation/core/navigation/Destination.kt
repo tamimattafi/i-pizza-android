@@ -13,8 +13,17 @@ sealed interface Destination {
     sealed interface Dialog : Destination, Parcelable {
 
         @Parcelize
-        class PizzaDetails(
+        class Details(
             val pizzaId: Int
+        ) : Dialog
+
+        @Parcelize
+        class Confirmation(
+            val label: String,
+            val positiveLabel: String,
+            val negativeLabel: String,
+            val onPositive: () -> Unit,
+            val onNegative: (() -> Unit)? = null
         ) : Dialog
     }
 
